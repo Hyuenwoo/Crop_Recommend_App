@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="1dp"
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        card_view:cardElevation="1dp"
+        card_view:cardMaxElevation="2dp"
+        card_view:cardCornerRadius="4dp"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cropimage"
+                android:src="@drawable/ic_launcher_background"
+                />
+
+            <TextView
+                android:id="@+id/croptext"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:autoSizeMaxTextSize="15sp"
+                android:autoSizeMinTextSize="8sp"
+                android:autoSizeTextType="uniform"
+                android:layout_alignParentBottom="true"
+                android:text="과채류"
+                android:textColor="@android:color/white" />
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
