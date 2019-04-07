@@ -13,6 +13,7 @@
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="300dp">
 
@@ -30,6 +31,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
                 android:text="apple"
+                android:textColor="@color/base_color"
                 android:textSize="16sp"/>
 
             <TextView
@@ -43,6 +45,7 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:text="별이 다섯개!"
+                android:textColor="@color/base_color"
                 android:drawablePadding="10dp"/>
 
         </RelativeLayout>

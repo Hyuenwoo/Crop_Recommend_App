@@ -15,7 +15,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginTop="4dp"
         android:text="회원가입"
-        android:textColor="@color/login_form_details"
+        android:textColor="#6E6E6E"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/forgot_slash" />
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:contentDescription="logo"
-        android:src="@drawable/icon_login"
+        android:src="@drawable/plant"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
@@ -82,7 +82,7 @@
         android:background="@drawable/background_btn"
         android:text="로그인"
         android:textAllCaps="false"
-        android:textColor="@color/login_form_details_medium"
+        android:textColor="#6E6E6E"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/password" />
@@ -94,7 +94,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="52dp"
         android:text="비밀번호 찾기"
-        android:textColor="@color/login_form_details"
+        android:textColor="#6E6E6E"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
@@ -106,7 +106,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="20dp"
         android:text="아이디 찾기"
-        android:textColor="@color/login_form_details"
+        android:textColor="#6E6E6E"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
@@ -134,8 +134,8 @@
         android:layout_marginTop="32dp"
         android:drawableStart="@drawable/icon_facebook"
         android:drawablePadding="8dp"
-        android:text="sign_in_with_kakao"
-        android:textColor="@color/login_form_details"
+        android:text="카카오 아이디로 로그인"
+        android:textColor="#6E6E6E"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/join" />
@@ -148,8 +148,8 @@
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/icon_facebook"
         android:drawablePadding="8dp"
-        android:text="sign_in_with_facebook"
-        android:textColor="@color/login_form_details"
+        android:text="네이버 아이디로 로그인"
+        android:textColor="#6E6E6E"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/kakao_login" />
