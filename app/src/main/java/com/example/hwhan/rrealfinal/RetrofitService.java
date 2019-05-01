@@ -18,7 +18,7 @@ public interface  RetrofitService {
 
     @FormUrlEncoded
     @POST("login_ok.php")
-    Call<ResultModel> login_ok(
+            Call<ResultModel> login_ok(
             @Field("id") String id, @Field("password") String password
     );
 

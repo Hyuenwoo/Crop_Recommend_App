@@ -28,6 +28,7 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".Recommend_view"/>
+        <activity android:name=".Crop_info_detail"/>
         <activity android:name=".Recommend_crop"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login_start"/>

@@ -19,17 +19,17 @@ public class Recommend_crop extends AppCompatActivity {
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     TextView textView;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.recommend_crop);
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.recommend_crop);
 
-        textView = (TextView) findViewById(R.id.cropLocate);
+            textView = (TextView) findViewById(R.id.cropLocate);
 
-        Integer[] colors_temp = {
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4)
+            Integer[] colors_temp = {
+                    getResources().getColor(R.color.color1),
+                    getResources().getColor(R.color.color2),
+                    getResources().getColor(R.color.color3),
+                    getResources().getColor(R.color.color4)
 
 
         };

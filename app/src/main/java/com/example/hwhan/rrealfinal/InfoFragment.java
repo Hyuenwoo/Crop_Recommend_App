@@ -1,5 +1,6 @@
 package com.example.hwhan.rrealfinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,7 +24,7 @@ public class InfoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.info_fragment, container, false);
+        final View view = inflater.inflate(R.layout.info_fragment, container, false);
 
 
         //상단 스크롤
@@ -74,6 +75,34 @@ public class InfoFragment extends Fragment {
 
 
                 }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+        cropView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                int position = rv.getChildAdapterPosition(child);
+
+                if(e.getAction() ==  MotionEvent.ACTION_UP){
+                    Log.i("MotionEvent : ", adapter2.getListData().get(position).getTitle());
+
+                    Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
+                    startActivity(intent);
+
+                }
+
+
                 return false;
             }
 
