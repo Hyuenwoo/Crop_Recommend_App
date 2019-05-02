@@ -17,6 +17,16 @@ public class ResultModel_CropData {
     private String subtitle5;
 
 
+    private String State;
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
     public String getName2() {
         return name2;
     }

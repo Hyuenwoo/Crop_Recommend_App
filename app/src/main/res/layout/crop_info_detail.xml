@@ -33,6 +33,7 @@
                 android:textSize="18sp"
                 android:text="한글명 "/>
             <TextView
+                android:id="@+id/crop_detail_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -54,6 +55,7 @@
                     android:textSize="18sp"
                     android:text="학 명 "/>
                 <TextView
+                    android:id="@+id/crop_detail_sname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

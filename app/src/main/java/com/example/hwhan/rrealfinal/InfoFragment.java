@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import java.util.Arrays;
 import java.util.List;
 
+import retrofit2.Callback;
+
 public class InfoFragment extends Fragment {
     private  Crop_horizontal_scroll_Adapter adapter;
     private  Crop_list_Adapter adapter2;
@@ -95,11 +97,11 @@ public class InfoFragment extends Fragment {
                 int position = rv.getChildAdapterPosition(child);
 
                 if(e.getAction() ==  MotionEvent.ACTION_UP){
-                    Log.i("MotionEvent : ", adapter2.getListData().get(position).getTitle());
-
+                    String name = adapter2.getListData().get(position).getTitle();
+                    Log.i("nametag : ", name);
                     Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
+                    intent.putExtra("Cropname", name);
                     startActivity(intent);
-
                 }
 
 
