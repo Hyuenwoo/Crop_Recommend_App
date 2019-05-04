@@ -18,7 +18,7 @@ public interface  RetrofitService {
 
     @GET("get_cropdata.php")
     Call<ResultModel_CropData> getcropInfo(
-            @Query("name") String name
+            @Query("NAME") String name
     );
 
     @FormUrlEncoded
