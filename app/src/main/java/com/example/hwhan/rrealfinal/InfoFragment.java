@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,8 +48,13 @@ public class InfoFragment extends Fragment {
         adapter2 = new Crop_list_Adapter();
         cropView.setAdapter(adapter2);
 
-
-
+        final GestureDetector gestureDetector = new GestureDetector(view.getContext(), new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onSingleTapUp(MotionEvent e)
+            {
+                return true;
+            }
+        });
 
 
         recyclerView.addOnItemTouchListener(new android.support.v7.widget.RecyclerView.OnItemTouchListener() {
@@ -57,8 +63,7 @@ public class InfoFragment extends Fragment {
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 int position = rv.getChildAdapterPosition(child);
 
-
-                if(e.getAction() ==  MotionEvent.ACTION_UP){
+                if(child!=null&&gestureDetector.onTouchEvent(e)){
                     Log.i("MotionEvent : ", "interrupt");
                     switch (position){
                         case 0:
@@ -71,10 +76,7 @@ public class InfoFragment extends Fragment {
                             adapter2.notifyDataSetChanged();
                             getdata3();
                             break;
-
                     }
-
-
 
                 }
                 return false;
@@ -96,9 +98,8 @@ public class InfoFragment extends Fragment {
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 int position = rv.getChildAdapterPosition(child);
 
-                if(e.getAction() ==  MotionEvent.ACTION_UP){
+                if(child!=null&&gestureDetector.onTouchEvent(e)){
                     String name = adapter2.getListData().get(position).getTitle();
-                    Log.i("nametag : ", name);
                     Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
                     intent.putExtra("Cropname", name);
                     startActivity(intent);

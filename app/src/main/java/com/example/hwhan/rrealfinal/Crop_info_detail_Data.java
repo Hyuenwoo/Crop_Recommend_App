@@ -20,4 +20,6 @@ public class Crop_info_detail_Data {
     public void setSubContent(String subContent) {
         this.subContent = subContent;
     }
+
+
 }

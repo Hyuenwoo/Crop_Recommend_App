@@ -25,15 +25,14 @@ public class Crop_list_Adapter extends RecyclerView.Adapter <Crop_list_Adapter.I
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Crop_list_Adapter.ItemViewHolder holder, int position) {
 
-        holder.onBind(listData.get(position));
+                public void onBindViewHolder(@NonNull Crop_list_Adapter.ItemViewHolder holder, int position) {
 
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    holder.onBind(listData.get(position));
 
-
+                    holder.image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
             }
         });
     }

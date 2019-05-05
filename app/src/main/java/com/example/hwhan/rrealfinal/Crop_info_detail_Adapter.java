@@ -38,7 +38,7 @@ public class Crop_info_detail_Adapter extends RecyclerView.Adapter <Crop_info_de
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder {
         private TextView subtitle;
         private TextView subcontent;
 
