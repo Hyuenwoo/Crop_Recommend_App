@@ -16,9 +16,14 @@ public interface  RetrofitService {
             @Query("name") String name
     );
 
+    @GET("get_cropdata.php")
+    Call<ResultModel_CropData> getcropInfo(
+            @Query("NAME") String name
+    );
+
     @FormUrlEncoded
     @POST("login_ok.php")
-    Call<ResultModel> login_ok(
+            Call<ResultModel> login_ok(
             @Field("id") String id, @Field("password") String password
     );
 
@@ -26,6 +31,11 @@ public interface  RetrofitService {
     @POST("login_join.php")
     Call<ResultModel> login_join(
             @Field("id") String id, @Field("password") String password, @Field("email") String email, @Field("number") String number
+    );
+
+    @GET("home_info.php")
+    Call<ResultModel_HomeInfo> gethomeinfo(
+            @Query("title") String title
     );
 
 }

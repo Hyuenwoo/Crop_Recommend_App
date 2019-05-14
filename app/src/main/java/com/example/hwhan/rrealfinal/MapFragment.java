@@ -87,7 +87,8 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String[] temp = localjsonParser(finder(mEditTextQuery.getText().toString()));
+                final String[] temp;
+                temp = localjsonParser(finder(mEditTextQuery.getText().toString()));
                 if(temp[0]!= null){
                     CameraPosition Temp = new CameraPosition(MapPoint.mapPointWithGeoCoord(Double.parseDouble(temp[1]), Double.parseDouble(temp[0])), 5);
                     mapView.animateCamera(CameraUpdateFactory.newCameraPosition(Temp), 500, new CancelableCallback() {

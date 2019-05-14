@@ -1,5 +1,6 @@
 package com.example.hwhan.rrealfinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,13 +19,15 @@ import android.view.ViewGroup;
 import java.util.Arrays;
 import java.util.List;
 
+import retrofit2.Callback;
+
 public class InfoFragment extends Fragment {
     private  Crop_horizontal_scroll_Adapter adapter;
     private  Crop_list_Adapter adapter2;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.info_fragment, container, false);
+        final View view = inflater.inflate(R.layout.info_fragment, container, false);
 
 
         //상단 스크롤
@@ -44,8 +48,13 @@ public class InfoFragment extends Fragment {
         adapter2 = new Crop_list_Adapter();
         cropView.setAdapter(adapter2);
 
-
-
+        final GestureDetector gestureDetector = new GestureDetector(view.getContext(), new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onSingleTapUp(MotionEvent e)
+            {
+                return true;
+            }
+        });
 
 
         recyclerView.addOnItemTouchListener(new android.support.v7.widget.RecyclerView.OnItemTouchListener() {
@@ -54,8 +63,7 @@ public class InfoFragment extends Fragment {
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 int position = rv.getChildAdapterPosition(child);
 
-
-                if(e.getAction() ==  MotionEvent.ACTION_UP){
+                if(child!=null&&gestureDetector.onTouchEvent(e)){
                     Log.i("MotionEvent : ", "interrupt");
                     switch (position){
                         case 0:
@@ -68,12 +76,36 @@ public class InfoFragment extends Fragment {
                             adapter2.notifyDataSetChanged();
                             getdata3();
                             break;
-
                     }
 
-
-
                 }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+        cropView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                int position = rv.getChildAdapterPosition(child);
+
+                if(child!=null&&gestureDetector.onTouchEvent(e)){
+                    String name = adapter2.getListData().get(position).getTitle();
+                    Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
+                    intent.putExtra("Cropname", name);
+                    startActivity(intent);
+                }
+
+
                 return false;
             }
 
