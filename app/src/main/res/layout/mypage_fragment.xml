@@ -29,7 +29,7 @@
         <TextView
             android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
-            android:text="박막례"
+            android:text="손현우"
             android:textSize="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -72,6 +72,7 @@
 
 
         <TextView
+            android:id="@+id/updateinfo"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
             android:textColor="@color/green"

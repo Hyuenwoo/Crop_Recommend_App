@@ -15,20 +15,32 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
+import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InfoFragment extends Fragment {
     private  Crop_horizontal_scroll_Adapter adapter;
     private  Crop_list_Adapter adapter2;
+    private Button searchbtn;
+    private TextView searchcontext;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.info_fragment, container, false);
-
+        searchbtn = view.findViewById(R.id.SearchBtn);
+        searchcontext = view.findViewById(R.id.editTextQuery);
 
         //상단 스크롤
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -67,15 +79,32 @@ public class InfoFragment extends Fragment {
                     Log.i("MotionEvent : ", "interrupt");
                     switch (position){
                         case 0:
-                            adapter2.getListData().clear();
-                            adapter2.notifyDataSetChanged();
-                            getdata2();
+                            CategorySet("과수류");
                             break;
                         case 1:
-                            adapter2.getListData().clear();
-                            adapter2.notifyDataSetChanged();
-                            getdata3();
+                            CategorySet("과채류");
                             break;
+                        case 2:
+                            CategorySet("경엽채류");
+                            break;
+                        case 3:
+                            CategorySet("근채류");
+                            break;
+                        case 4:
+                            CategorySet("인경채류");
+                            break;
+                        case 5:
+                            CategorySet("곡류");
+                            break;
+                        case 6:
+                            CategorySet("약초류");
+                            break;
+
+
+
+
+
+
                     }
 
                 }
@@ -99,7 +128,7 @@ public class InfoFragment extends Fragment {
                 int position = rv.getChildAdapterPosition(child);
 
                 if(child!=null&&gestureDetector.onTouchEvent(e)){
-                    String name = adapter2.getListData().get(position).getTitle();
+                    String name = adapter2.getListData().get(position).getSubtitle();
                     Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
                     intent.putExtra("Cropname", name);
                     startActivity(intent);
@@ -119,11 +148,92 @@ public class InfoFragment extends Fragment {
 
             }
         });
+
+
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "클릭됬는데 왜안되냐"+searchcontext.getText(), Toast.LENGTH_SHORT).show();
+                SearchData(searchcontext.getText().toString());
+            }
+        });
+
         return view;
+
 
     }
 
+    private  void CategorySet(String Category){
+        adapter2.getListData().clear();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetrofitService.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
+        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+
+        retrofitService.getcropname(Category).enqueue(new Callback<ResultModel_CropData>() {
+            @Override
+            public void onResponse(Call<ResultModel_CropData> call, Response<ResultModel_CropData> response) {
+
+                ResultModel_CropData result = response.body();
+
+
+               for(int i=0; i<result.getResult().size(); i++){
+                   Crop_info_detail_Data data = new Crop_info_detail_Data();
+                   data.setSubtitle(result.getResult().get(i).getNAME());
+                   data.setSubContent(result.getResult().get(i).getNAME2());
+                   adapter2.addItem(data);
+
+               }
+                adapter2.notifyDataSetChanged();
+
+            }
+            @Override
+            public void onFailure(Call<ResultModel_CropData> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    private  void SearchData(String name){
+        adapter2.getListData().clear();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetrofitService.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+
+        retrofitService.getcropInfo(name).enqueue(new Callback<ResultModel_CropData>() {
+            @Override
+            public void onResponse(Call<ResultModel_CropData> call, Response<ResultModel_CropData> response) {
+
+                ResultModel_CropData result = response.body();
+
+
+                for(int i=0; i<result.getResult().size(); i++){
+                    Crop_info_detail_Data data = new Crop_info_detail_Data();
+                    data.setSubtitle(result.getResult().get(i).getNAME());
+                    data.setSubContent(result.getResult().get(i).getNAME2());
+                    adapter2.addItem(data);
+
+                }
+                if(result.getResult()==null){
+                    Toast.makeText(getActivity(), "검색결과가 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+                adapter2.notifyDataSetChanged();
+
+            }
+            @Override
+            public void onFailure(Call<ResultModel_CropData> call, Throwable t) {
+
+            }
+        });
+
+
+    }
     private void getdata() {
         // 임의의 데이터입니다.
         List<String> listTitle = Arrays.asList("과일류", "과채류", "경엽채류", "근채류", "인경채류", "곡류", "약초류");
@@ -146,57 +256,5 @@ public class InfoFragment extends Fragment {
             adapter.addItem(data);
         }
         adapter.notifyDataSetChanged();
-    }
-    private void getdata2() {
-        // 임의의 데이터입니다.
-        List<String> listTitle = Arrays.asList("사과", "배", "포도", "감귤", "참다래", "매실", "유자", "단감", "복숭아", "복분자");
-        List<Integer> listResId = Arrays.asList(
-                R.drawable.apple,
-                R.drawable.bae,
-                R.drawable.grape,
-                R.drawable.citrus,
-                R.drawable.kwee,
-                R.drawable.maesil,
-                R.drawable.uja,
-                R.drawable.dangam,
-                R.drawable.peach,
-                R.drawable.bokbunja
-        );
-
-        for (int i = 0; i < listTitle.size(); i++) {
-            Crop_horizontal_scroll_Data data = new Crop_horizontal_scroll_Data();
-            data.setTitle(listTitle.get(i));
-            data.setImage(listResId.get(i));
-
-            adapter2.addItem(data);
-
-        }
-
-        adapter2.notifyDataSetChanged();
-    }
-    private void getdata3() {
-        // 임의의 데이터입니다.
-        List<String> listTitle = Arrays.asList("수박", "참외", "딸기", "오이", "토마토", "메론", "호박", "가지", "고추", "피망");
-        List<Integer> listResId = Arrays.asList(
-                R.drawable.watermelon,
-                R.drawable.chamwae,
-                R.drawable.ddalgi,
-                R.drawable.oe,
-                R.drawable.tomato,
-                R.drawable.melon,
-                R.drawable.pumpkin,
-                R.drawable.gaji,
-                R.drawable.pepper,
-                R.drawable.pimang
-        );
-
-        for (int i = 0; i < listTitle.size(); i++) {
-            Crop_horizontal_scroll_Data data = new Crop_horizontal_scroll_Data();
-            data.setTitle(listTitle.get(i));
-            data.setImage(listResId.get(i));
-
-            adapter2.addItem(data);
-        }
-        adapter2.notifyDataSetChanged();
     }
 }

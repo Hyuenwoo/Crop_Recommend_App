@@ -7,12 +7,7 @@
     android:layout_marginBottom="8dp"
     android:background="@android:color/white">
 
-    <ImageView
-        android:id="@+id/crop_image"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
+
     <LinearLayout
         android:layout_marginLeft="15dp"
         android:layout_width="0dp"
@@ -26,12 +21,11 @@
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:text="감자"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/crop_text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -41,13 +35,13 @@
             android:textColor="@android:color/black"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/crop_text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:includeFontPadding="false"
             android:text="수미"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@android:color/black"/>
     </LinearLayout>
 </LinearLayout>

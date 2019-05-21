@@ -104,7 +104,7 @@ public class Crop_info_detail extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 }
-                
+
 
                 @Override
                 public void onFailure(Call<ResultModel_CropData> call, Throwable t) {

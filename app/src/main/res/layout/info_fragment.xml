@@ -31,11 +31,11 @@
         </EditText>
 
         <Button
-            android:layout_toRightOf="@id/editTextQuery"
-            android:layout_centerVertical="true"
             android:id="@+id/SearchBtn"
-            android:layout_width="30dp"
+            android:layout_width="25dp"
             android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/editTextQuery"
             android:background="@drawable/search_icon" />
 
     </LinearLayout>

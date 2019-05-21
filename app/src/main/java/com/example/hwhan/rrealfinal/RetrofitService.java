@@ -21,6 +21,11 @@ public interface  RetrofitService {
             @Query("NAME") String name
     );
 
+    @GET("get_category.php")
+    Call<ResultModel_CropData> getcropname(
+            @Query("CATEGORY") String category
+    );
+
     @FormUrlEncoded
     @POST("login_ok.php")
             Call<ResultModel> login_ok(

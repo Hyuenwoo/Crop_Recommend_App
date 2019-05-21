@@ -1,6 +1,8 @@
 package com.example.hwhan.rrealfinal;
 
 public class ResultModel_CropData_ITEM {
+    private String NAME;
+    private String CATEGORY;
     private String NAME2;
     private String EX;
 
@@ -19,6 +21,23 @@ public class ResultModel_CropData_ITEM {
 
     private String SUBTITLE5;
     private String SUBCONTENT5;
+
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
+    }
+
+    public String getCATEGORY() {
+        return CATEGORY;
+    }
+
+    public void setCATEGORY(String CATEGORY) {
+        this.CATEGORY = CATEGORY;
+    }
 
     public String getNAME2() {
         return NAME2;

@@ -5,15 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Crop_list_Adapter extends RecyclerView.Adapter <Crop_list_Adapter.ItemViewHolder> {
-    private ArrayList<Crop_horizontal_scroll_Data> listData = new ArrayList<>();
+    private ArrayList<Crop_info_detail_Data> listData = new ArrayList<>();
 
-    public ArrayList<Crop_horizontal_scroll_Data> getListData() {
+    public ArrayList<Crop_info_detail_Data> getListData() {
         return listData;
     }
 
@@ -30,11 +29,7 @@ public class Crop_list_Adapter extends RecyclerView.Adapter <Crop_list_Adapter.I
 
                     holder.onBind(listData.get(position));
 
-                    holder.image.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-            }
-        });
+
     }
 
     @Override
@@ -42,24 +37,24 @@ public class Crop_list_Adapter extends RecyclerView.Adapter <Crop_list_Adapter.I
         return listData.size();
     }
 
-    void addItem(Crop_horizontal_scroll_Data data) {
+    void addItem(Crop_info_detail_Data data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
     class ItemViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
-        private ImageView image;
+        private TextView category;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.crop_image);
             name = itemView.findViewById(R.id.crop_text);
+            category = itemView.findViewById(R.id.crop_text2);
         }
 
-        public void onBind(Crop_horizontal_scroll_Data data) {
+        public void onBind(Crop_info_detail_Data data) {
 
-            name.setText(data.getTitle());
-            image.setImageResource(data.getImage());
+            name.setText(data.getSubtitle());
+            category.setText(data.getSubContent());
         }
     }
 }

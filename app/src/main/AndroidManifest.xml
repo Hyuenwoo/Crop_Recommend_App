@@ -33,6 +33,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login_start"/>
         <activity android:name=".Login_join"/>
+        <activity android:name=".Mypage_update"/>
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="9baa9e5acc2c6f524347be698705364c"/>
 
     </application>
