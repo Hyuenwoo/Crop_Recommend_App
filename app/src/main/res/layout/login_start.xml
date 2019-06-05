@@ -126,33 +126,4 @@
         app:layout_constraintStart_toEndOf="@+id/forgot_id"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
-    <TextView
-        android:id="@+id/kakao_login"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="32dp"
-        android:drawableStart="@drawable/icon_facebook"
-        android:drawablePadding="8dp"
-        android:text="카카오 아이디로 로그인"
-        android:textColor="#6E6E6E"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/join" />
-
-    <TextView
-        android:id="@+id/facebook_login2"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/icon_facebook"
-        android:drawablePadding="8dp"
-        android:text="네이버 아이디로 로그인"
-        android:textColor="#6E6E6E"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/kakao_login" />
-
-
 </android.support.constraint.ConstraintLayout>

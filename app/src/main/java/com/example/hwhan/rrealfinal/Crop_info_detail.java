@@ -4,20 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +16,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Crop_info_detail extends AppCompatActivity {
-    String jsonString;
     TextView textView1;
     TextView textView2;
     Crop_info_detail_Adapter adapter;
@@ -112,6 +101,17 @@ public class Crop_info_detail extends AppCompatActivity {
                 }
             });
 
+
+
+
+
+
+//            dropdownBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    textView2.setVisibility(View.VISIBLE);
+//                }
+//            });
 
 
 

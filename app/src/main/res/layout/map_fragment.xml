@@ -33,6 +33,7 @@
             android:background="@drawable/navi_icon" />
 
         <EditText
+            android:inputType="text"
             android:background="@null"
             android:id="@+id/editTextQuery"
             android:layout_toRightOf="@id/navigationBtn"
@@ -42,6 +43,7 @@
             android:textColor="#FF000000"
             android:textColorHint="#FF000000"
             android:hint=" 여기에 입력하세요"
+            android:imeOptions="actionSearch"
             >
 
             <!--<requestFocus />-->

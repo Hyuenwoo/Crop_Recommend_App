@@ -18,7 +18,25 @@ public class MypageFragment extends Fragment {
 
 
         TextView updateinfo = view.findViewById(R.id.updateinfo);
+        TextView favlocate = view.findViewById(R.id.favlocate);
+        TextView favcrop = view.findViewById(R.id.favcrop);
 
+
+
+        favlocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Mypage_favlocate.class);
+                startActivity(intent);
+            }
+        });
+        favcrop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Mypage_favcrop.class);
+                startActivity(intent);
+            }
+        });
         updateinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +44,11 @@ public class MypageFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+
+
+
 
         return view;
     }

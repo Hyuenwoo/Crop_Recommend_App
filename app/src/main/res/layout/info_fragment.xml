@@ -24,6 +24,7 @@
             android:layout_height="match_parent"
             android:textColor="#FF000000"
             android:textColorHint="#FF000000"
+            android:imeOptions="actionSearch"
             android:hint="검색"
             >
 

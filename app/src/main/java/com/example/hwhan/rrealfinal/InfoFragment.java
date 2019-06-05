@@ -11,10 +11,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +61,7 @@ public class InfoFragment extends Fragment {
         cropView.setItemAnimator(new DefaultItemAnimator());
         adapter2 = new Crop_list_Adapter();
         cropView.setAdapter(adapter2);
-
+        CategorySet("과수류");
         final GestureDetector gestureDetector = new GestureDetector(view.getContext(), new GestureDetector.SimpleOnGestureListener(){
             @Override
             public boolean onSingleTapUp(MotionEvent e)
@@ -149,20 +151,26 @@ public class InfoFragment extends Fragment {
             }
         });
 
-
+        searchcontext.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    SearchData(searchcontext.getText().toString());
+                }
+                return false;
+            }
+        });
         searchbtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "클릭됬는데 왜안되냐"+searchcontext.getText(), Toast.LENGTH_SHORT).show();
                 SearchData(searchcontext.getText().toString());
             }
         });
-
         return view;
-
-
     }
+
+
 
     private  void CategorySet(String Category){
         adapter2.getListData().clear();
@@ -257,4 +265,6 @@ public class InfoFragment extends Fragment {
         }
         adapter.notifyDataSetChanged();
     }
+
+
 }

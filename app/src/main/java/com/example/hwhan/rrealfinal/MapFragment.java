@@ -1,5 +1,6 @@
 package com.example.hwhan.rrealfinal;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,13 +9,16 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.daum.mf.map.api.CameraPosition;
@@ -76,6 +80,19 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
 
 
+
+
+        mEditTextQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    searcher(v);
+                }
+                return false;
+            }
+        });
+
+
         currentLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,25 +103,9 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final String[] temp;
-                temp = localjsonParser(finder(mEditTextQuery.getText().toString()));
-                if(temp[0]!= null){
-                    CameraPosition Temp = new CameraPosition(MapPoint.mapPointWithGeoCoord(Double.parseDouble(temp[1]), Double.parseDouble(temp[0])), 5);
-                    mapView.animateCamera(CameraUpdateFactory.newCameraPosition(Temp), 500, new CancelableCallback() {
-                        @Override
-                        public void onFinish() {
-//                            imm.hideSoftInputFromWindow(mEditTextQuery.getWindowToken(), 0); //키보드 숨기기
-                        }
-                        @Override
-                        public void onCancel() {
-                            Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(getActivity(), "No Search data error", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(final View view) {
+                searcher(view);
+
             }
         });
 
@@ -147,6 +148,37 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
 
     }
+
+    //검색바 메소드
+    public void searcher(final View view){
+        final String[] temp;
+        temp = localjsonParser(finder(mEditTextQuery.getText().toString()));
+        if(temp[0]!= null){
+            CameraPosition Temp = new CameraPosition(MapPoint.mapPointWithGeoCoord(Double.parseDouble(temp[1]), Double.parseDouble(temp[0])), 5);
+            mapView.animateCamera(CameraUpdateFactory.newCameraPosition(Temp), 500, new CancelableCallback() {
+                @Override
+                public void onFinish() {
+
+
+                    if (view != null) {
+                        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+
+                }
+                @Override
+                public void onCancel() {
+                    Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else{
+            Toast.makeText(getActivity(), "No Search data error", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
 
     //좌표파싱
     public  String[] coorjsonParser(String jsonString){

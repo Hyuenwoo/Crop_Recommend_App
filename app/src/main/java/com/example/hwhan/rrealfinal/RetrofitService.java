@@ -10,7 +10,10 @@ import retrofit2.http.Query;
 public interface  RetrofitService {
 
     String URL = "http://cropmaster.cafe24.com/";
-
+    @GET("get_userinfo.php")
+    Call<ResultModel> getuserInfo(
+            @Query("id") String id
+    );
     @GET("test.php")
     Call<ResultModel> getInfo(
             @Query("name") String name

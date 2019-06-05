@@ -1,10 +1,14 @@
 package com.example.hwhan.rrealfinal;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,8 +28,35 @@ public class Crop_info_detail_Adapter extends RecyclerView.Adapter <Crop_info_de
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Crop_info_detail_Adapter.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final Crop_info_detail_Adapter.ItemViewHolder holder, int position) {
+        holder.dropdownBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.subcontent.getVisibility()==View.VISIBLE){
+                    holder.subcontent.setVisibility(View.GONE);
+                    holder.dropdownBtn.setBackgroundResource(R.drawable.dropdown);
+                }else{
+                    holder.subcontent.setVisibility(View.VISIBLE);
+                    holder.dropdownBtn.setBackgroundResource(R.drawable.dropup);
+                }
 
+
+            }
+        });
+
+        holder.subtitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.subcontent.getVisibility()==View.VISIBLE){
+                    holder.subcontent.setVisibility(View.GONE);
+                    holder.dropdownBtn.setBackgroundResource(R.drawable.dropdown);
+                }else{
+                    holder.subcontent.setVisibility(View.VISIBLE);
+                    holder.dropdownBtn.setBackgroundResource(R.drawable.dropup);
+                }
+
+            }
+        });
         holder.onBind(listData.get(position));
     }
 
@@ -41,11 +72,13 @@ public class Crop_info_detail_Adapter extends RecyclerView.Adapter <Crop_info_de
     class ItemViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder {
         private TextView subtitle;
         private TextView subcontent;
+        private ImageButton dropdownBtn;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             subtitle = itemView.findViewById(R.id.subtitle);
             subcontent = itemView.findViewById(R.id.subcontent);
+            dropdownBtn = itemView.findViewById(R.id.openBtn);
         }
 
         public void onBind(Crop_info_detail_Data data) {

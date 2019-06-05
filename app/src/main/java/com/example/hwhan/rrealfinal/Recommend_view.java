@@ -3,16 +3,19 @@ package com.example.hwhan.rrealfinal;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Recommend_view extends AppCompatActivity {
-
+    private Button backwardBtn;
         private  Recommend_view_Adapter adapter; // 리사이클러뷰 어댑터 선언
 
         @Override
         protected void onCreate(Bundle saveInstanceState){
+            backwardBtn = findViewById(R.id.navigationBtn);
             super.onCreate(saveInstanceState);
             setContentView(R.layout.recommend_view);
             android.support.v7.widget.RecyclerView recyclerView = findViewById(R.id.recommend_view);
@@ -20,6 +23,14 @@ public class Recommend_view extends AppCompatActivity {
             adapter = new Recommend_view_Adapter();
             recyclerView.setAdapter(adapter);
             getdata();
+
+            backwardBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+
         }
 
     private void getdata() {
