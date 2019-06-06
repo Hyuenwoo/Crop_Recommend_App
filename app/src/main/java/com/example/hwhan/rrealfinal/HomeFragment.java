@@ -1,11 +1,13 @@
 package com.example.hwhan.rrealfinal;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.w3c.dom.DocumentType;
 
+import java.util.ArrayList;
+
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +39,11 @@ public class HomeFragment extends Fragment {
     String url_piece_collect, test;
     String url1, url2, url3, url4;
     String title ;
+
+
+    FlipAdapter flipadapter;
+    AutoScrollViewPager autoViewPager;
+    TextView viewtext;
 
     @Nullable
     @Override
@@ -116,6 +126,49 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+
+        //오토뷰페이저
+
+        final ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
+        viewtext = view.findViewById(R.id.viewtext);
+        autoViewPager = view.findViewById(R.id.autoViewPager);
+        data.add(R.drawable.htram);
+        data.add(R.drawable.grape);
+        data.add(R.drawable.gun);
+        Context context = view.getContext();
+        flipadapter = new FlipAdapter(context, data);
+        autoViewPager.setAdapter(flipadapter); //Auto Viewpager에 Adapter 장착
+        autoViewPager.setInterval(2000); // 페이지 넘어갈 시간 간격 설정
+        autoViewPager.startAutoScroll(); //Auto Scroll 시작
+        autoViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position < data.size()) {
+                    autoViewPager.setCurrentItem(position + data.size(), false);
+                } else if (position >= data.size() * 2) {
+                    autoViewPager.setCurrentItem(position - data.size(), false);
+                }
+                position = position % data.size();
+                if (position == 0) {  // 첫 페이지
+                    viewtext.setText("1/3");
+
+                } else if (position == 1) {   //두번째 페이지
+                    viewtext.setText("2/3");
+
+                } else if (position == 2) {
+                    viewtext.setText("3/3");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         return view;
     }
