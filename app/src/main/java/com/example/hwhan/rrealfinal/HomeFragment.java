@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,6 @@ import org.jsoup.nodes.Document;
 import org.w3c.dom.DocumentType;
 
 import java.util.ArrayList;
-
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +40,8 @@ public class HomeFragment extends Fragment {
     String url1, url2, url3, url4;
     String title ;
 
+    Button weekInfo;
+
 
     FlipAdapter flipadapter;
     AutoScrollViewPager autoViewPager;
@@ -54,6 +56,7 @@ public class HomeFragment extends Fragment {
         ariticle2= view.findViewById(R.id.showtext2);
         ariticle3= view.findViewById(R.id.showtext3);
         ariticle4= view.findViewById(R.id.showtext4);
+        weekInfo = view.findViewById(R.id.weekinfo);
 
         title = "test";
 
@@ -126,6 +129,15 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+
+        //버튼
+        weekInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).replaceFragment(1);
+
+            }
+        });
 
         //오토뷰페이저
 

@@ -51,7 +51,7 @@
                     android:id="@+id/showtext1"
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"/>
                 <Button
                     android:id="@+id/showtext2"
                     android:layout_marginTop="80dp"
@@ -73,7 +73,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="100dp"
             android:layout_marginTop="20dp">
 
             <FrameLayout
@@ -114,62 +114,70 @@
             android:background="#F2F2F2"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.CardView
-                android:layout_marginTop="20dp"
+            <Button
+                android:id="@+id/weekinfo_button"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
                 android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="13dp"
-                app:cardBackgroundColor="#CEF6D8"
-                app:cardCornerRadius="15dp">
+                android:layout_height="120dp"
+                android:text="주간 농사 정보"
+                android:background="#CEF6D8"
+                android:textColor="@color/base_color"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="비료처방"
-                    android:textSize="15dp"
-                    android:textColor="#6E6E6E"/>
+            <Button
+                android:id="@+id/weekinfo2"
+                android:layout_marginLeft="20dp"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:text="주간 농사 정보"
+                android:background="#CEF6D8"
+                android:layout_gravity="center"
+                android:textColor="@color/base_color"/>
+
+            <Button
+                android:id="@+id/weekinfo"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:text="주간 농사 정보"
+                android:background="#CEF6D8"
+                android:textColor="@color/base_color"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#F5ECCE">
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_marginTop="20dp"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="13dp"
-                app:cardBackgroundColor="#CEF6D8"
-                app:cardCornerRadius="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="토양검정"
-                    android:textSize="15dp"
-                    android:textColor="#6E6E6E"/>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_marginTop="20dp"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="13dp"
-                app:cardBackgroundColor="#CEF6D8"
-                app:cardCornerRadius="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="농업 기술"
-                    android:textSize="15dp"
-                    android:textColor="#6E6E6E"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#F6D8CE">
 
             </android.support.v7.widget.CardView>
 
 
         </LinearLayout>
+
 
 
 

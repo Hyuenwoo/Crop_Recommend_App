@@ -46,4 +46,9 @@ public interface  RetrofitService {
             @Query("title") String title
     );
 
+    @GET("recommend_info.php")
+    Call<ResultModel_RecoInfo>  getrecoinfo(
+            @Query("locate") String locate
+    );
+
 }

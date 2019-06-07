@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -42,14 +44,20 @@ public class Recommend_crop_adapter extends PagerAdapter {
 
         ImageView imageView;
         TextView cropTitle, cropContent;
+        TextView locate;
+        String url;
+
+        url = models.get(position).getCropImage();
 
         imageView = view.findViewById(R.id.cropImage);
         cropTitle = view.findViewById(R.id.cropTitle);
         cropContent = view.findViewById(R.id.cropContent);
+        locate = view.findViewById(R.id.locate);
 
-        imageView.setImageResource(models.get(position).getCropImage());
+        Glide.with(context).load(url).into(imageView);
         cropTitle.setText(models.get(position).getCropTitle());
         cropContent.setText(models.get(position).getCropContent());
+        locate.setText(models.get(position).getLocate());
 
         container.addView(view,0);
         return view;

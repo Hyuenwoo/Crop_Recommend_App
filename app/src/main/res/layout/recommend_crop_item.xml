@@ -7,6 +7,16 @@
     android:gravity="center_vertical"
     android:background="#F5D0A9">
 
+    <TextView
+        android:id="@+id/locate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="강원도 홍천시"
+        android:textSize="45dp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"/>
+
 
     <RelativeLayout
         android:background="#F5D0A9"

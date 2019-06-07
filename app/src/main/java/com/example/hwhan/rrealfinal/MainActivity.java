@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity  {
     private InfoFragment infoFragment = new InfoFragment();
     private MypageFragment mypageFragment = new MypageFragment();
 
+    private  HomeFragment_WeekInfo homeFragment_weekInfo = new HomeFragment_WeekInfo();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,48 @@ public class MainActivity extends AppCompatActivity  {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION_ACCESS_FINE_LOCATION);
 
     }
+
+    public void replaceFragment(int fragmentId){
+
+        //화면에 보여지는 fragment를 추가하거나 바꿀 수 있는 객체를 만든다.
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+
+        //다음으로 보여지는 fragment는 fragmentId로 설정한다.
+
+        if( fragmentId == 1 ) {
+
+            transaction.replace(R.id.container, homeFragment_weekInfo);
+
+        }
+
+        else if( fragmentId == 2 ) {
+
+            transaction.replace(R.id.container, homeFragment_weekInfo);
+
+        }
+
+        else if( fragmentId == 3 ) {
+
+            transaction.replace(R.id.container, homeFragment_weekInfo);
+
+        }
+
+
+
+        //Back 버튼 클릭 시 이전 프래그먼트로 이동시키도록 한다.
+
+        transaction.addToBackStack(null);
+
+
+
+        //fragment의 변경사항을 반영시킨다.
+
+        transaction.commit();
+
+    }
+
 
 
 }

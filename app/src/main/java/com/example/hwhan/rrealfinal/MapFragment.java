@@ -55,6 +55,7 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
 
     private InputMethodManager imm;
+    String locate;
 
 
     @Nullable
@@ -306,6 +307,8 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
             CURRENT_LOCATION = temp[0];
             createDefaultMarker(mapView, CURRENT_POINT.getMapPointGeoCoord().latitude, CURRENT_POINT.getMapPointGeoCoord().longitude, CURRENT_LOCATION);//선택위치기준 마커생성
             Toast.makeText(getActivity(), "현재주소: " + temp[1] +" "+ temp[2], Toast.LENGTH_SHORT).show();
+            locate = temp[1] +" "+ temp[2];
+
         }
         else{
             mapView.removeAllPOIItems(); //기존 마커 제거
@@ -347,8 +350,10 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-        Intent intent = new Intent(getActivity(), com.example.hwhan.rrealfinal.Recommend_view.class);
+        Intent intent = new Intent(getActivity(), com.example.hwhan.rrealfinal.Recommend_crop.class);
+        intent.putExtra("locate",locate);
         startActivity(intent);
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.hwhan.rrealfinal;
 
 import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,12 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Recommend_crop extends AppCompatActivity {
 
     ViewPager viewPager;
@@ -19,29 +26,62 @@ public class Recommend_crop extends AppCompatActivity {
     List<Recommend_crop_model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
-    TextView textView;
+    String locate;
+    String recommend[];
+    RetrofitService retrofitService;
+
     @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.recommend_crop);
 
-            textView = (TextView) findViewById(R.id.cropLocate);
+            Intent intent = getIntent();
+            locate = intent.getExtras().getString("locate");
 
-            Integer[] colors_temp = {
-                    getResources().getColor(R.color.color1),
-                    getResources().getColor(R.color.color2),
-                    getResources().getColor(R.color.color3),
-                    getResources().getColor(R.color.color4)
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetrofitService.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        retrofitService = retrofit.create(RetrofitService.class);
+        retrofitService.getrecoinfo(locate).enqueue(new Callback<ResultModel_RecoInfo>() {
+            @Override
+            public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
+                ResultModel_RecoInfo result = response.body();
+                recommend[0] = result.getResult().get(0);
+                recommend[1] = result.getResult().get(1);
+                recommend[2] = result.getResult().get(2);
+                recommend[3] = result.getResult().get(3); //작물
+                recommend[4] = result.getResult().get(4);
+                recommend[5] = result.getResult().get(5);
+                recommend[6] = result.getResult().get(6);
+                recommend[7] = result.getResult().get(7); // 이미지 url
+
+            }
+
+            @Override
+            public void onFailure(Call<ResultModel_RecoInfo> call, Throwable t) {
+
+            }
+        });
+
+        Integer[] colors_temp = {
+                getResources().getColor(R.color.color1),
+                getResources().getColor(R.color.color2),
+                getResources().getColor(R.color.color3),
+                getResources().getColor(R.color.color4)
 
 
         };
+
         colors =  colors_temp;
 
         models = new ArrayList<>();
-        models.add(new Recommend_crop_model(R.drawable.apple,"사과","별이 5개!"));
-        models.add(new Recommend_crop_model(R.drawable.peach,"복숭아","별이 5개!"));
-        models.add(new Recommend_crop_model(R.drawable.corn,"옥수수","별이 5개!"));
-        models.add(new Recommend_crop_model(R.drawable.potato,"감자","별이 5개!"));
+        models.add(new Recommend_crop_model(recommend[4],recommend[0],"별이 5개!",locate));
+        models.add(new Recommend_crop_model(recommend[5],recommend[1],"별이 5개!",locate));
+        models.add(new Recommend_crop_model(recommend[6],recommend[2],"별이 5개!",locate));
+        models.add(new Recommend_crop_model(recommend[7],recommend[3],"별이 5개!",locate));
 
         adapter = new Recommend_crop_adapter(models,this);
 
