@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        Intent intent = getIntent();
+        final String ID = intent.getStringExtra("ID");
 
         //바텀네비게이션뷰
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity  {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Bundle bundle = new Bundle();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.navigation_menu1: {
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity  {
                     }
                     case R.id.navigation_menu4: {
                         transaction.replace(R.id.frame_layout, mypageFragment).commitAllowingStateLoss();
+                        bundle.putString("ID", ID);
+                        mypageFragment.setArguments(bundle);
                         break;
                     }
                 }

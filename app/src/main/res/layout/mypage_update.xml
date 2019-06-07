@@ -50,7 +50,7 @@
             />
         <EditText
             android:id="@+id/currentpassword"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textSize="18dp"
@@ -75,7 +75,7 @@
                 />
             <EditText
                 android:id="@+id/updatepassword"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="18dp"
@@ -130,7 +130,6 @@
         </LinearLayout>
         <Button
             android:id="@+id/updatebtn"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:text="수정"
             android:layout_width="wrap_content"
