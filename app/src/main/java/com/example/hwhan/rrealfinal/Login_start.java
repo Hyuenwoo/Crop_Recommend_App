@@ -65,7 +65,9 @@ public class Login_start extends AppCompatActivity {
                         else{
                             Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.putExtra("ID", inputID);
                             startActivity(intent);
+                            finish();
                         }
                     }
 

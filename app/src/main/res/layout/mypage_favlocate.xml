@@ -10,14 +10,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="23dp"
         android:background="@android:color/white">
-
         <Button
             android:id="@+id/backwardBtn"
             android:layout_margin="5dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/ic_backward" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,5 +28,79 @@
 
         </TextView>
     </FrameLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/localID"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군" />
+        <TextView
+            android:id="@+id/localdetail"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/localID"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군 청암면 묵계리 산성궁터" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/localID1"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군" />
+        <TextView
+            android:id="@+id/localdetail1"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/localID1"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군 청암면 묵계리 산성궁터" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/localID2"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군" />
+        <TextView
+            android:id="@+id/localdetail2"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/localID2"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:text="경남 하동군 청암면 묵계리 산성궁터" />
+    </RelativeLayout>
 </LinearLayout>

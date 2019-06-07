@@ -76,6 +76,7 @@ public class Login_join extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(getApplicationContext(), Login_start.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 

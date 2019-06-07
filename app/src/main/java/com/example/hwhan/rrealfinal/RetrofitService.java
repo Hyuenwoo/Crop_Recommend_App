@@ -10,14 +10,12 @@ import retrofit2.http.Query;
 public interface  RetrofitService {
 
     String URL = "http://cropmaster.cafe24.com/";
+
     @GET("get_userinfo.php")
-    Call<ResultModel> getuserInfo(
-            @Query("id") String id
+    Call<ResultModel_userinfo> getuserInfo(
+            @Query("ID") String id
     );
-    @GET("test.php")
-    Call<ResultModel> getInfo(
-            @Query("name") String name
-    );
+
 
     @GET("get_cropdata.php")
     Call<ResultModel_CropData> getcropInfo(
@@ -33,6 +31,12 @@ public interface  RetrofitService {
     @POST("login_ok.php")
             Call<ResultModel> login_ok(
             @Field("id") String id, @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("login_update.php")
+    Call<ResultModel> login_update(
+            @Field("id") String id, @Field("password") String password, @Field("email") String email, @Field("number") String number
     );
 
     @FormUrlEncoded
