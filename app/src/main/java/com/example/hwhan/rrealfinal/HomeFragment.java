@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
         viewtext = view.findViewById(R.id.viewtext);
         autoViewPager = view.findViewById(R.id.autoViewPager);
         data.add(R.drawable.htram);
-        data.add(R.drawable.grape);
+        data.add(R.drawable.nongsa_img);
         data.add(R.drawable.gun);
         Context context = view.getContext();
         flipadapter = new FlipAdapter(context, data);
