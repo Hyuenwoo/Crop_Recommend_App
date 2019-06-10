@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -21,13 +22,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Recommend_crop extends AppCompatActivity {
 
+
     ViewPager viewPager;
     Recommend_crop_adapter adapter;
     List<Recommend_crop_model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     String locate;
-    String recommend[];
+    String[] recommend;
+    String[] rec_info;
     RetrofitService retrofitService;
 
     @Override
@@ -38,6 +41,12 @@ public class Recommend_crop extends AppCompatActivity {
             Intent intent = getIntent();
             locate = intent.getExtras().getString("locate");
             locate = "kangwon";
+
+            locate = "sokcho";
+
+
+            recommend = new String[10];
+            rec_info = new String[10];
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -59,30 +68,36 @@ public class Recommend_crop extends AppCompatActivity {
                 recommend[6] = result.getResult().get(7);
                 recommend[7] = result.getResult().get(8); // 이미지 url
 
+                rec_info = recommend;
+                Toast.makeText(Recommend_crop.this, rec_info[7], Toast.LENGTH_SHORT).show();
+
+
             }
 
             @Override
             public void onFailure(Call<ResultModel_RecoInfo> call, Throwable t) {
 
+                Toast.makeText(Recommend_crop.this, "실패", Toast.LENGTH_SHORT).show();
+
             }
         });
 
         Integer[] colors_temp = {
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4)
+                getResources().getColor(R.color.color5),
+                getResources().getColor(R.color.color5),
+                getResources().getColor(R.color.color5),
+                getResources().getColor(R.color.color5)
 
 
         };
 
         colors =  colors_temp;
 
-        models = new ArrayList<>();
-        models.add(new Recommend_crop_model(recommend[4],recommend[0],"별이 5개!",locate));
-        models.add(new Recommend_crop_model(recommend[5],recommend[1],"별이 5개!",locate));
-        models.add(new Recommend_crop_model(recommend[6],recommend[2],"별이 5개!",locate));
-        models.add(new Recommend_crop_model(recommend[7],recommend[3],"별이 5개!",locate));
+            models = new ArrayList<>();
+            models.add(new Recommend_crop_model(rec_info[4], rec_info[0], "-", locate));
+            models.add(new Recommend_crop_model(recommend[5], recommend[1], "-", locate));
+            models.add(new Recommend_crop_model(recommend[6], recommend[2], "-", locate));
+            models.add(new Recommend_crop_model(recommend[7], recommend[3], "", locate));
 
         adapter = new Recommend_crop_adapter(models,this);
 

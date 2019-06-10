@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    android:background="#F5D0A9">
+    android:background="#E3F6CE">
 
     <TextView
         android:id="@+id/locate"
@@ -13,13 +13,12 @@
         android:layout_height="wrap_content"
         android:text="강원도 홍천시"
         android:textSize="45dp"
-        android:textColor="#ffffff"
+        android:textColor="#424242"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"/>
 
 
     <RelativeLayout
-        android:background="#F5D0A9"
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
@@ -30,7 +29,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="#F5DA81">
+            app:cardBackgroundColor="#ffff">
 
             <ImageView
                 android:id="@+id/cropImage"
