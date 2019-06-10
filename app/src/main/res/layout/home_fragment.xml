@@ -30,7 +30,8 @@
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/green"
                 android:textSize="20dp"
-                android:text="여긴 뭐 심지?"/>
+                android:text="여긴 뭐 심지?"
+                android:textStyle="bold"/>
 
 
 
@@ -108,41 +109,77 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="110dp"
             android:background="#F2F2F2"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/weekinfo_button"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:text="주간 농사 정보"
-                android:background="#CEF6D8"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:text="토양 검정"
+                android:background="@drawable/soilcheck"
                 android:textColor="@color/base_color"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/weekinfo2"
-                android:layout_marginLeft="20dp"
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:text="주간 농사 정보"
-                android:background="#CEF6D8"
-                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:text="작목별 농업 기술"
+                android:background="@drawable/tractor"
                 android:textColor="@color/base_color"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/weekinfo"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:text="주간 농사 정보"
-                android:background="#CEF6D8"
+                android:layout_marginLeft="30dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/weekinfo"
                 android:textColor="@color/base_color"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:background="#F2F2F2"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="토양 검정"
+                    android:textStyle="bold"
+                    android:textColor="#424242"
+                    android:layout_marginLeft="38dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작목별 농업 기술"
+                    android:textStyle="bold"
+                    android:textColor="#424242"
+                    android:layout_marginLeft="48dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주간 농사 정보"
+                    android:textStyle="bold"
+                    android:textColor="#424242"
+                    android:layout_marginLeft="28dp"/>
+
+
+            </LinearLayout>
 
 
 

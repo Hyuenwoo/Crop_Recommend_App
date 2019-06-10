@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/navigation_menu1"
-        android:icon="@android:drawable/ic_menu_mapmode"
+        android:icon="@drawable/home2"
         android:title="홈" />
 
     <item
         android:id="@+id/navigation_menu2"
-        android:icon="@android:drawable/ic_menu_mapmode"
+        android:icon="@drawable/recommend"
         android:title="작물추천" />
 
     <item
         android:id="@+id/navigation_menu3"
-        android:icon="@android:drawable/ic_menu_myplaces"
+        android:icon="@drawable/rec_info"
         android:title="작물정보" />
 
     <item
         android:id="@+id/navigation_menu4"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/info"
         android:title="내정보" />
 
 </menu>

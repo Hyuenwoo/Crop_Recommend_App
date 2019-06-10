@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,17 +42,21 @@ public class HomeFragment extends Fragment {
     String url1, url2, url3, url4;
     String title ;
 
-    Button weekInfo;
-
+    ImageButton weekInfo;
 
     FlipAdapter flipadapter;
     AutoScrollViewPager autoViewPager;
     TextView viewtext;
 
+    HomeFragment_WeekInfo homeFragment_weekInfo;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
+
+
+        homeFragment_weekInfo = new HomeFragment_WeekInfo();
 
         ariticle1= view.findViewById(R.id.showtext1);
         ariticle2= view.findViewById(R.id.showtext2);
@@ -134,7 +140,13 @@ public class HomeFragment extends Fragment {
         weekInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).replaceFragment(1);
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.frame_layout, homeFragment_weekInfo);
+                transaction.addToBackStack(null);
+
+                transaction.commit();
 
             }
         });

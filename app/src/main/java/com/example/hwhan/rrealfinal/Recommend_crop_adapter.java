@@ -54,7 +54,8 @@ public class Recommend_crop_adapter extends PagerAdapter {
         cropContent = view.findViewById(R.id.cropContent);
         locate = view.findViewById(R.id.locate);
 
-        Glide.with(context).load(url).into(imageView);
+        Glide.with(context).load("http://cropmaster.cafe24.com/img/"+url+".jpg").into(imageView);
+        imageView.setImageResource(R.drawable.apple);
         cropTitle.setText(models.get(position).getCropTitle());
         cropContent.setText(models.get(position).getCropContent());
         locate.setText(models.get(position).getLocate());

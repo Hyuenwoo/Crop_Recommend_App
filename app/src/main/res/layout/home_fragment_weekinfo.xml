@@ -1,15 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/weekinfo_fragment"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ffffff">
 
-
-    <TextView
-        android:id="@+id/weekinfo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"/>
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/plant_top_logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/green"
+            android:textSize="20dp"
+            android:text="주간 농사 정보"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="농촌진흥청에서는 벼농사, 밭작물, 채소, 과수, 화훼, 축산, 특용작물에 대한 농작물 관리, 병해충 방제요령 등에 대한 주간 농사정보를 제공하여 보다 효율적인 농사를 지을 수 있도록 본 정보를 제공합니다."
+        android:textColor="#B43104"/>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="등록일"-->
+            <!--android:textColor="#1C1C1C"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_marginLeft="20dp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/check"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="제목"-->
+            <!--android:textColor="#1C1C1C"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_marginLeft="120dp"/>-->
+
+        <!--<TextView-->
+
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="첨부"-->
+            <!--android:textColor="#1C1C1C"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_marginLeft="105dp"/>-->
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
