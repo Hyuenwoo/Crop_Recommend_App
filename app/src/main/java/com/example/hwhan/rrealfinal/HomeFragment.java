@@ -159,6 +159,10 @@ public class HomeFragment extends Fragment {
         data.add(R.drawable.htram);
         data.add(R.drawable.nongsa_img);
         data.add(R.drawable.gun);
+
+        data.add(R.drawable.nongsaro);
+        data.add(R.drawable.soiltoram);
+        data.add(R.drawable.jinhung);
         Context context = view.getContext();
         flipadapter = new FlipAdapter(context, data);
         autoViewPager.setAdapter(flipadapter); //Auto Viewpager에 Adapter 장착
