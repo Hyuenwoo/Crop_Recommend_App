@@ -144,9 +144,9 @@ public class HomeFragment extends Fragment {
         final ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
         viewtext = view.findViewById(R.id.viewtext);
         autoViewPager = view.findViewById(R.id.autoViewPager);
-        data.add(R.drawable.htram);
-        data.add(R.drawable.grape);
-        data.add(R.drawable.gun);
+        data.add(R.drawable.nongsaro);
+        data.add(R.drawable.soiltoram);
+        data.add(R.drawable.jinhung);
         Context context = view.getContext();
         flipadapter = new FlipAdapter(context, data);
         autoViewPager.setAdapter(flipadapter); //Auto Viewpager에 Adapter 장착

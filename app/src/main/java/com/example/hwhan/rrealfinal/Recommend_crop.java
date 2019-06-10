@@ -37,6 +37,7 @@ public class Recommend_crop extends AppCompatActivity {
 
             Intent intent = getIntent();
             locate = intent.getExtras().getString("locate");
+            locate = "kangwon";
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -49,14 +50,14 @@ public class Recommend_crop extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
                 ResultModel_RecoInfo result = response.body();
-                recommend[0] = result.getResult().get(0);
-                recommend[1] = result.getResult().get(1);
-                recommend[2] = result.getResult().get(2);
-                recommend[3] = result.getResult().get(3); //작물
-                recommend[4] = result.getResult().get(4);
-                recommend[5] = result.getResult().get(5);
-                recommend[6] = result.getResult().get(6);
-                recommend[7] = result.getResult().get(7); // 이미지 url
+                recommend[0] = result.getResult().get(1);
+                recommend[1] = result.getResult().get(2);
+                recommend[2] = result.getResult().get(3);
+                recommend[3] = result.getResult().get(4); //작물
+                recommend[4] = result.getResult().get(5);
+                recommend[5] = result.getResult().get(6);
+                recommend[6] = result.getResult().get(7);
+                recommend[7] = result.getResult().get(8); // 이미지 url
 
             }
 
