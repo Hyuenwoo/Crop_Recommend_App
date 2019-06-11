@@ -29,7 +29,7 @@ public class Recommend_crop extends AppCompatActivity {
     ViewPager viewPager;
     Recommend_crop_adapter adapter;
     List<Recommend_crop_model> models;
-    Drawable[] colors = null;
+    Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     String locate;
     String[] recommend;
@@ -43,7 +43,7 @@ public class Recommend_crop extends AppCompatActivity {
             Intent intent = getIntent();
             locate = intent.getExtras().getString("locate");
             locate = "kangwon";
-            locate = "sokcho";
+            locate = "정선";
             recommend = new String[10];
         viewPager = findViewById(R.id.cropViewpager);
         locater = findViewById(R.id.cropLocate);
@@ -68,11 +68,11 @@ public class Recommend_crop extends AppCompatActivity {
                 recommend[6] = result.getResult().get(6);
                 recommend[7] = result.getResult().get(7); // 이미지 url
 
-                Toast.makeText(Recommend_crop.this, recommend[7], Toast.LENGTH_LONG);
-                models.add(new Recommend_crop_model(recommend[4], recommend[0], "90%", "적중율"));
-                models.add(new Recommend_crop_model(recommend[5], recommend[1], "85%", "적중율"));
-                models.add(new Recommend_crop_model(recommend[6], recommend[2], "74%", "적중율"));
-                models.add(new Recommend_crop_model(recommend[7], recommend[3], "58%", "적중율"));
+                //Toast.makeText(Recommend_crop.this, recommend[7], Toast.LENGTH_LONG);
+                models.add(new Recommend_crop_model(recommend[4], recommend[0], "210", "data"));
+                models.add(new Recommend_crop_model(recommend[5], recommend[1], "320", "data"));
+                models.add(new Recommend_crop_model(recommend[6], recommend[2], "250", "data"));
+                models.add(new Recommend_crop_model(recommend[7], recommend[3], "300", "data"));
                 adapter = new Recommend_crop_adapter(models,Recommend_crop.this);
                 viewPager.setAdapter(adapter);
                 viewPager.setPadding(130,0,130,0);
@@ -84,20 +84,13 @@ public class Recommend_crop extends AppCompatActivity {
         });
 
 
-        Drawable[] colors_temp = {
-                getResources().getDrawable(R.drawable.background1),
-                getResources().getDrawable(R.drawable.background2),
-                getResources().getDrawable(R.drawable.background5),
-                getResources().getDrawable(R.drawable.background6)
-
-
-
         Integer[] colors_temp = {
                 getResources().getColor(R.color.color5),
                 getResources().getColor(R.color.color5),
                 getResources().getColor(R.color.color5),
-                getResources().getColor(R.color.color5)
+                getResources().getColor(R.color.color5),
         };
+
 
         colors =  colors_temp;
 
@@ -113,7 +106,7 @@ public class Recommend_crop extends AppCompatActivity {
                                     colors[position + 1])
                     );
                 }else {
-                    viewPager.setBackgroundDrawable(colors[colors.length-1]);
+                    viewPager.setBackgroundColor(colors[colors.length-1]);
                 }
             }
 

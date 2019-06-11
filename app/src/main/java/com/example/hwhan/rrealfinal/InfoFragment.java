@@ -250,7 +250,7 @@ public class InfoFragment extends Fragment {
                 R.drawable.gwa,
                 R.drawable.sam,
                 R.drawable.gun,
-                R.drawable.gun,
+                R.drawable.geunchae,
                 R.drawable.gok,
                 R.drawable.yak,
                 R.drawable.peach
