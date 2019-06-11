@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Recommend_crop extends AppCompatActivity {
 
 
+    TextView locater;
     ViewPager viewPager;
     Recommend_crop_adapter adapter;
     List<Recommend_crop_model> models;
@@ -30,24 +32,21 @@ public class Recommend_crop extends AppCompatActivity {
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     String locate;
     String[] recommend;
-    String[] rec_info;
     RetrofitService retrofitService;
 
     @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.recommend_crop);
-
+        models = new ArrayList<>();
             Intent intent = getIntent();
             locate = intent.getExtras().getString("locate");
             locate = "kangwon";
-
             locate = "sokcho";
-
-
             recommend = new String[10];
-            rec_info = new String[10];
-
+        viewPager = findViewById(R.id.cropViewpager);
+        locater = findViewById(R.id.cropLocate);
+        locater.setText(locate);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitService.URL)
@@ -59,51 +58,38 @@ public class Recommend_crop extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
                 ResultModel_RecoInfo result = response.body();
-                recommend[0] = result.getResult().get(1);
-                recommend[1] = result.getResult().get(2);
-                recommend[2] = result.getResult().get(3);
-                recommend[3] = result.getResult().get(4); //작물
-                recommend[4] = result.getResult().get(5);
-                recommend[5] = result.getResult().get(6);
-                recommend[6] = result.getResult().get(7);
-                recommend[7] = result.getResult().get(8); // 이미지 url
+                recommend[0] = result.getResult().get(0);
+                recommend[1] = result.getResult().get(1);
+                recommend[2] = result.getResult().get(2);
+                recommend[3] = result.getResult().get(3); //작물
+                recommend[4] = result.getResult().get(4);
+                recommend[5] = result.getResult().get(5);
+                recommend[6] = result.getResult().get(6);
+                recommend[7] = result.getResult().get(7); // 이미지 url
 
-                rec_info = recommend;
-                Toast.makeText(Recommend_crop.this, rec_info[7], Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(Recommend_crop.this, recommend[7], Toast.LENGTH_LONG);
+                models.add(new Recommend_crop_model(recommend[4], recommend[0], "90%", "적중율"));
+                models.add(new Recommend_crop_model(recommend[5], recommend[1], "85%", "적중율"));
+                models.add(new Recommend_crop_model(recommend[6], recommend[2], "74%", "적중율"));
+                models.add(new Recommend_crop_model(recommend[7], recommend[3], "58%", "적중율"));
+                adapter = new Recommend_crop_adapter(models,Recommend_crop.this);
+                viewPager.setAdapter(adapter);
+                viewPager.setPadding(130,0,130,0);
             }
-
             @Override
             public void onFailure(Call<ResultModel_RecoInfo> call, Throwable t) {
-
                 Toast.makeText(Recommend_crop.this, "실패", Toast.LENGTH_SHORT).show();
-
             }
         });
-
         Integer[] colors_temp = {
                 getResources().getColor(R.color.color5),
                 getResources().getColor(R.color.color5),
                 getResources().getColor(R.color.color5),
                 getResources().getColor(R.color.color5)
-
-
         };
 
         colors =  colors_temp;
 
-            models = new ArrayList<>();
-            models.add(new Recommend_crop_model(rec_info[4], rec_info[0], "-", locate));
-            models.add(new Recommend_crop_model(recommend[5], recommend[1], "-", locate));
-            models.add(new Recommend_crop_model(recommend[6], recommend[2], "-", locate));
-            models.add(new Recommend_crop_model(recommend[7], recommend[3], "", locate));
-
-        adapter = new Recommend_crop_adapter(models,this);
-
-        viewPager = findViewById(R.id.cropViewpager);
-        viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

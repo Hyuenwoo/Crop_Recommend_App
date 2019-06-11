@@ -8,11 +8,11 @@
     android:background="#E3F6CE">
 
     <TextView
-        android:id="@+id/locate"
+        android:id="@+id/cropTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="강원도 홍천시"
-        android:textSize="45dp"
+        android:textSize="25dp"
         android:textColor="#424242"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"/>
@@ -39,7 +39,7 @@
                 android:src="@drawable/apple" />
 
             <TextView
-                android:id="@+id/cropTitle"
+                android:id="@+id/locate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cropImage"

@@ -48,7 +48,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
     private MapPOIItem mDefaultMarker;
 
 
-
     private EditText mEditTextQuery;
     private Button search, menu;
     private FloatingActionButton currentLocation;
@@ -78,7 +77,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         menu = view.findViewById(R.id.navigationBtn);
         search = view.findViewById(R.id.SearchBtn);
         currentLocation = view.findViewById(R.id.locBtn);
-
 
 
 
