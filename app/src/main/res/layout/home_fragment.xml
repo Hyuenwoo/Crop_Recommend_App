@@ -9,12 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#8FBC8F"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#ffff">
 
 
             <ImageView
@@ -34,6 +36,13 @@
                 android:textStyle="bold"/>
 
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#ffff">
 
         </LinearLayout>
 
@@ -72,82 +81,49 @@
 
         </android.support.v7.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
-                    android:id="@+id/autoViewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/viewtext"
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="1/3"
-                        android:textSize="13dp"
-                        android:textColor="#ffffff"/>
-                </LinearLayout>
-            </FrameLayout>
-            
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
         <LinearLayout
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:background="#F2F2F2"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/weekinfo_button"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:text="토양 검정"
-                android:background="@drawable/soilcheck"
-                android:textColor="@color/base_color"/>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="#F2F2F2"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/weekinfo2"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:text="작목별 농업 기술"
-                android:background="@drawable/tractor"
-                android:textColor="@color/base_color"/>
+                <ImageButton
+                    android:id="@+id/weekinfo_button"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:text="토양 검정"
+                    android:background="@drawable/soilcheck"
+                    android:textColor="@color/base_color"/>
 
-            <ImageButton
-                android:id="@+id/weekinfo"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="30dp"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/weekinfo"
-                android:textColor="@color/base_color"/>
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/weekinfo2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:text="작목별 농업 기술"
+                    android:background="@drawable/tractor"
+                    android:textColor="@color/base_color"/>
+
+                <ImageButton
+                    android:id="@+id/weekinfo"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/weekinfo"
+                    android:textColor="@color/base_color"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:background="#F2F2F2"
@@ -175,7 +151,7 @@
                     android:text="주간 농사 정보"
                     android:textStyle="bold"
                     android:textColor="#424242"
-                    android:layout_marginLeft="28dp"/>
+                    android:layout_marginLeft="30dp"/>
 
 
             </LinearLayout>
@@ -184,10 +160,56 @@
 
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#8FBC8F">
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+                    android:id="@+id/autoViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/viewtext"
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="1/3"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:textColor="#424242"/>
+                </LinearLayout>
+            </FrameLayout>
+            
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#ffff">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -196,7 +218,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
-                app:cardBackgroundColor="#F5ECCE">
+                app:cardBackgroundColor="#F5D08A">
 
             </android.support.v7.widget.CardView>
 

@@ -156,17 +156,18 @@ public class HomeFragment extends Fragment {
         final ArrayList<Integer> data = new ArrayList<>(); //이미지 url를 저장하는 arraylist
         viewtext = view.findViewById(R.id.viewtext);
         autoViewPager = view.findViewById(R.id.autoViewPager);
-        data.add(R.drawable.htram);
-        data.add(R.drawable.nongsa_img);
-        data.add(R.drawable.gun);
 
-        data.add(R.drawable.nongsaro);
-        data.add(R.drawable.soiltoram);
-        data.add(R.drawable.jinhung);
+        data.add(R.drawable.nongsa_img10);
+        data.add(R.drawable.jin);
+        data.add(R.drawable.re_agri4);
+
+//        data.add(R.drawable.nongsa_img6);
+//        data.add(R.drawable.re_agri3);
+//        data.add(R.drawable.jin);
         Context context = view.getContext();
         flipadapter = new FlipAdapter(context, data);
         autoViewPager.setAdapter(flipadapter); //Auto Viewpager에 Adapter 장착
-        autoViewPager.setInterval(2000); // 페이지 넘어갈 시간 간격 설정
+        autoViewPager.setInterval(4000); // 페이지 넘어갈 시간 간격 설정
         autoViewPager.startAutoScroll(); //Auto Scroll 시작
         autoViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

@@ -2,6 +2,7 @@ package com.example.hwhan.rrealfinal;
 
 import android.animation.ArgbEvaluator;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -26,7 +27,7 @@ public class Recommend_crop extends AppCompatActivity {
     ViewPager viewPager;
     Recommend_crop_adapter adapter;
     List<Recommend_crop_model> models;
-    Integer[] colors = null;
+    Drawable[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     String locate;
     String[] recommend;
@@ -82,11 +83,11 @@ public class Recommend_crop extends AppCompatActivity {
             }
         });
 
-        Integer[] colors_temp = {
-                getResources().getColor(R.color.color5),
-                getResources().getColor(R.color.color5),
-                getResources().getColor(R.color.color5),
-                getResources().getColor(R.color.color5)
+        Drawable[] colors_temp = {
+                getResources().getDrawable(R.drawable.background1),
+                getResources().getDrawable(R.drawable.background2),
+                getResources().getDrawable(R.drawable.background5),
+                getResources().getDrawable(R.drawable.background6)
 
 
         };
@@ -116,7 +117,7 @@ public class Recommend_crop extends AppCompatActivity {
                                     colors[position + 1])
                     );
                 }else {
-                    viewPager.setBackgroundColor(colors[colors.length-1]);
+                    viewPager.setBackgroundDrawable(colors[colors.length-1]);
                 }
             }
 
