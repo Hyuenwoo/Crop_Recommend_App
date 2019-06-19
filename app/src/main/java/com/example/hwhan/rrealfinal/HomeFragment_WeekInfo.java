@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class HomeFragment_WeekInfo extends Fragment {
 
     public WeekInfo_Adapter weekInfo_adapter;
-    public ArrayList<WeekInfo_Item> weekInfo_items;
 
 
     boolean inDownUrl = false;
@@ -40,11 +39,6 @@ public class HomeFragment_WeekInfo extends Fragment {
     String name = "";
 
     WeekInfo_Item temp;
-    TextView textView;
-    String[] arr1,arr2,arr3;
-
-    ArrayList<WeekInfo_Item> parse_data;
-
 
     @Nullable
     @Override
@@ -55,19 +49,13 @@ public class HomeFragment_WeekInfo extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        weekInfo_adapter = new WeekInfo_Adapter();
-
-
-       // textView = (TextView) view.findViewById(R.id.check);
-        //textView.setText("");
-
-        temp = new WeekInfo_Item("1","2","3");
-        parse_data = new ArrayList<>();
+        weekInfo_adapter = new WeekInfo_Adapter(getContext());
+        recyclerView.setAdapter(weekInfo_adapter);
 
         StrictMode.enableDefaults();
 
 
-        try{
+        try {
             URL url = new URL("http://api.nongsaro.go.kr/service/weekFarmInfo/weekFarmInfoList?"
                     + "apiKey=20190513PIQHQURR8NU7UD0DNUHUXW"
             ); //검색 URL부분
@@ -80,91 +68,61 @@ public class HomeFragment_WeekInfo extends Fragment {
             int parserEvent = parser.getEventType();
             System.out.println("파싱시작합니다.");
 
-            while (parserEvent != XmlPullParser.END_DOCUMENT){
-                switch(parserEvent){
+            while (parserEvent != XmlPullParser.END_DOCUMENT) {
+                switch (parserEvent) {
                     case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
-                        if(parser.getName().equals("downUrl")){ //title 만나면 내용을 받을수 있게 하자
+                        if (parser.getName().equals("downUrl")) { //title 만나면 내용을 받을수 있게 하자
                             inDownUrl = true;
-                        }
-                        if(parser.getName().equals("regDt")){ //address 만나면 내용을 받을수 있게 하자
-                            inDate = true;
-                        }
-                        if(parser.getName().equals("Subject")){ //mapx 만나면 내용을 받을수 있게 하자
-                            inSubject = true;
-                        }
-                        if(parser.getName().equals("fileName")){ //mapx 만나면 내용을 받을수 있게 하자
+                        } else if (parser.getName().equals("fileName")) { //mapx 만나면 내용을 받을수 있게 하자
                             inName = true;
-                        }
-                        if(parser.getName().equals("hitCT")){ //mapx 만나면 내용을 받을수 있게 하자
+                        } else if (parser.getName().equals("hitCT")) { //mapx 만나면 내용을 받을수 있게 하자
                             inHit = true;
+                        } else if (parser.getName().equals("regDt")) { //address 만나면 내용을 받을수 있게 하자
+                            inDate = true;
+                        } else if (parser.getName().equals("Subject")) { //mapx 만나면 내용을 받을수 있게 하자
+                            inSubject = true;
                         }
                         break;
 
                     case XmlPullParser.TEXT://parser가 내용에 접근했을때
-                        if(inDownUrl){ //isTitle이 true일 때 태그의 내용을 저장.
+                        if (inDownUrl) { //isTitle이 true일 때 태그의 내용을 저장.
+                            temp = new WeekInfo_Item();
                             downUrl = parser.getText();
                             temp.setFile(downUrl);
                             inDownUrl = false;
-                        }
-                        if(inDate){ //isAddress이 true일 때 태그의 내용을 저장.
-                            date = parser.getText();
-                            temp.setDate(date);
-                            inDate = false;
-                        }
-                        if(inSubject){ //isMapx이 true일 때 태그의 내용을 저장.
-                            subject = parser.getText();
-                            inSubject = false;
-                        }
-                        if(inName){ //isAddress이 true일 때 태그의 내용을 저장.
+                        } else if (inName) { //isAddress이 true일 때 태그의 내용을 저장.
                             name = parser.getText();
                             temp.setSubject(name);
                             inName = false;
-                        }
-                        if(inHit){ //isMapx이 true일 때 태그의 내용을 저장.
+                        } else if (inHit) { //isMapx이 true일 때 태그의 내용을 저장.
                             hit = parser.getText();
                             inHit = false;
+                        } else if (inDate) { //isAddress이 true일 때 태그의 내용을 저장.
+                            date = parser.getText();
+                            temp.setDate(date);
+                            inDate = false;
+                        } else if (inSubject) { //isMapx이 true일 때 태그의 내용을 저장.
+                            subject = parser.getText();
+                            inSubject = false;
                         }
-                        parse_data.add(temp);
 
-                        weekInfo_adapter.addItem(temp);
                         break;
                     case XmlPullParser.END_TAG:
-                        if(parser.getName().equals("item")){
-
-
-                            //textView.setText(textView.toString()+temp.getDate());
-
+                        if (parser.getName().equals("item")) {
+                            weekInfo_adapter.addItem(temp);
                             initem = false;
                         }
                         break;
                 }
                 parserEvent = parser.next();
             }
-
-        } catch(Exception e){
-            textView.setText("error");
+            weekInfo_adapter.notifyDataSetChanged();
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
-//        parse_data.get(1).setDate("check");
-//        parse_data.get(1).setSubject("check");
-//        parse_data.get(1).setFile("check");
-
-//        weekInfo_adapter.listData = parse_data;
-
-
-
-
-        weekInfo_adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(weekInfo_adapter);
-
-      // textView.setText(parse_data.get(0).getDate()+parse_data.get(1).getDate()+parse_data.get(2).getDate());
 
         return view;
     }
-
-
-
-
 
 
 }
