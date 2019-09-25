@@ -21,11 +21,11 @@ public class WeekInfo_Adapter extends RecyclerView.Adapter<WeekInfo_Adapter.Item
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WeekInfo_Adapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.weekinfo_item, parent, false);
-        return new ItemViewHolder(view);
+        return new WeekInfo_Adapter.ItemViewHolder(view);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class WeekInfo_Adapter extends RecyclerView.Adapter<WeekInfo_Adapter.Item
 
     // RecyclerView의 핵심인 ViewHolder 입니다.
     // 여기서 subView를 setting 해줍니다.
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder {
 
         TextView subject;
         TextView date;
@@ -76,6 +76,7 @@ public class WeekInfo_Adapter extends RecyclerView.Adapter<WeekInfo_Adapter.Item
             date = (TextView) itemView.findViewById(R.id.date);
             file_url = (TextView) itemView.findViewById(R.id.file_url);
         }
+
 
         void onBind(WeekInfo_Item data) {
             subject.setText(data.getSubject());
