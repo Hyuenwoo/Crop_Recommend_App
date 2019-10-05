@@ -7,13 +7,6 @@ public class WeekInfo_Item {
     public String file;
 
 
-    public WeekInfo_Item(String date, String subject, String file) {
-
-        this.date = date;
-        this.subject = subject;
-        this.file = file;
-    }
-
 
     public String getDate() {
         return date;

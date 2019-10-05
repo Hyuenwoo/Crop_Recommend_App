@@ -35,16 +35,16 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="13sp" />
 
-
-        <ImageButton
-            android:id="@+id/file_url"
-            android:layout_width="30sp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/fileicon">
-
-        </ImageButton>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/file_url"
+        android:layout_width="30sp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/fileicon">
+
+    </ImageButton>
 
 
 </LinearLayout>
