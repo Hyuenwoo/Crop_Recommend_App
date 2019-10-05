@@ -5,6 +5,7 @@ public class WeekInfo_Item {
     public String date;
     public String subject;
     public String file;
+
 //
 //    public WeekInfo_Item(String date, String subject, String file){
 //
