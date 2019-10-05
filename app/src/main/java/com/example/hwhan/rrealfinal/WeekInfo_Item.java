@@ -6,12 +6,13 @@ public class WeekInfo_Item {
     public String subject;
     public String file;
 
-    public WeekInfo_Item(String date, String subject, String file){
-
-        this.date = date;
-        this.subject = subject;
-        this.file = file;
-    }
+//
+//    public WeekInfo_Item(String date, String subject, String file){
+//
+//        this.date = date;
+//        this.subject = subject;
+//        this.file = file;
+//    }
 
 
     public String getDate() {
@@ -22,6 +23,7 @@ public class WeekInfo_Item {
         this.date = date;
     }
 
+
     public String getSubject() {
         return subject;
     }
@@ -29,6 +31,7 @@ public class WeekInfo_Item {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
 
     public String getFile() {
         return file;
