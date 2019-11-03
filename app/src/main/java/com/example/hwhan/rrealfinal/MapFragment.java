@@ -1,5 +1,6 @@
 package com.example.hwhan.rrealfinal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 
-public class MapFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener, MapView.MapViewEventListener, MapView.POIItemEventListener, MapView.CurrentLocationEventListener {
+public class MapFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener, MapView.MapViewEventListener, MapView.POIItemEventListener, MapView.CurrentLocationEventListener, MainActivity.OnBackPressedListener {
     String CURRENT_LOCATION = "";
     private MapPoint CURRENT_POINT;
 
@@ -56,11 +57,12 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
     private InputMethodManager imm;
     String locate;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.map_fragment, container, false);
+        final View view = inflater.inflate(R.layout.map_fragment, container, false);
+
+
 
 
 //        imm = (InputMethodManager)getSystemService((INPUT_METHOD_SERVICE));
@@ -78,8 +80,14 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         search = view.findViewById(R.id.SearchBtn);
         currentLocation = view.findViewById(R.id.locBtn);
 
-
-
+        Bundle bundle= this.getArguments();
+        if(bundle!=null){
+            if(bundle.getString("title")!=""){
+                String title = bundle.getString("title");
+                Toast.makeText(getContext(), title+"222222", Toast.LENGTH_LONG).show();
+                finder(title);
+            }
+        }
 
         mEditTextQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -148,6 +156,8 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
     }
 
+
+
     //검색바 메소드
     public void searcher(final View view){
         final String[] temp;
@@ -157,13 +167,10 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
             mapView.animateCamera(CameraUpdateFactory.newCameraPosition(Temp), 500, new CancelableCallback() {
                 @Override
                 public void onFinish() {
-
-
                     if (view != null) {
                         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                     }
-
                 }
                 @Override
                 public void onCancel() {
@@ -174,8 +181,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         else{
             Toast.makeText(getActivity(), "No Search data error", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
 
@@ -382,5 +387,16 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
     @Override
     public void onCurrentLocationUpdateCancelled(MapView mapView) {
 
+    }
+    @Override
+    public void onBack() {
+        MainActivity activity = (MainActivity)getActivity();
+        activity.setOnBackPressedListener(null);
+        activity.onBackPressed();
+    }
+    @Override
+    public void onAttach(Activity context){
+        super.onAttach(context);
+        ((MainActivity)context).setOnBackPressedListener(this);
     }
 }

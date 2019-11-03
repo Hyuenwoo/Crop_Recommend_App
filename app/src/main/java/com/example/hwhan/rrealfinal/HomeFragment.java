@@ -9,19 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.w3c.dom.DocumentType;
-
 import java.util.ArrayList;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import retrofit2.Call;
@@ -47,6 +41,7 @@ public class HomeFragment extends Fragment {
     FlipAdapter flipadapter;
     AutoScrollViewPager autoViewPager;
     TextView viewtext;
+
 
     HomeFragment_WeekInfo homeFragment_weekInfo;
 
@@ -140,12 +135,9 @@ public class HomeFragment extends Fragment {
         weekInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.frame_layout, homeFragment_weekInfo);
                 transaction.addToBackStack(null);
-
                 transaction.commit();
 
             }
@@ -193,6 +185,7 @@ public class HomeFragment extends Fragment {
                 }
             }
 
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -201,4 +194,6 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+
 }

@@ -1,10 +1,13 @@
 package com.example.hwhan.rrealfinal;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,15 +34,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class InfoFragment extends Fragment {
+public class InfoFragment extends Fragment implements MainActivity.OnBackPressedListener  {
     private  Crop_horizontal_scroll_Adapter adapter;
     private  Crop_list_Adapter adapter2;
     private Button searchbtn;
     private TextView searchcontext;
+    InfoFragment_crop_info_detail infoFragment_crop_info_detail;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        infoFragment_crop_info_detail = new InfoFragment_crop_info_detail();
+
         final View view = inflater.inflate(R.layout.info_fragment, container, false);
         searchbtn = view.findViewById(R.id.SearchBtn);
         searchcontext = view.findViewById(R.id.editTextQuery);
@@ -130,10 +136,16 @@ public class InfoFragment extends Fragment {
                 int position = rv.getChildAdapterPosition(child);
 
                 if(child!=null&&gestureDetector.onTouchEvent(e)){
+                    FragmentManager fragmentManager = getFragmentManager();
                     String name = adapter2.getListData().get(position).getSubtitle();
-                    Intent intent = new Intent(view.getContext(),Crop_info_detail.class);
-                    intent.putExtra("Cropname", name);
-                    startActivity(intent);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    Bundle bundle = new Bundle();
+                    transaction.replace(R.id.frame_layout, infoFragment_crop_info_detail);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    bundle.putString("Cropname", name);
+
+                    infoFragment_crop_info_detail.setArguments(bundle);
                 }
 
 
@@ -267,4 +279,15 @@ public class InfoFragment extends Fragment {
     }
 
 
+    @Override
+    public void onBack() {
+        MainActivity activity = (MainActivity)getActivity();
+        activity.setOnBackPressedListener(null);
+        activity.onBackPressed();
+    }
+    @Override
+    public void onAttach(Activity context){
+        super.onAttach(context);
+        ((MainActivity)context).setOnBackPressedListener(this);
+    }
 }

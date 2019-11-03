@@ -29,6 +29,9 @@ public class Crop_info_detail_Adapter extends RecyclerView.Adapter <Crop_info_de
 
     @Override
     public void onBindViewHolder(@NonNull final Crop_info_detail_Adapter.ItemViewHolder holder, int position) {
+
+
+
         holder.dropdownBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

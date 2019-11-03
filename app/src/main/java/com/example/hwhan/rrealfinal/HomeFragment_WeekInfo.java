@@ -1,18 +1,16 @@
 package com.example.hwhan.rrealfinal;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -21,11 +19,10 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class HomeFragment_WeekInfo extends Fragment {
+public class HomeFragment_WeekInfo extends Fragment implements MainActivity.OnBackPressedListener{
 
     public WeekInfo_Adapter weekInfo_adapter;
-
-
+    private HomeFragment homeFragment = new HomeFragment();
     boolean inDownUrl = false;
     boolean inDate = false;
     boolean inSubject = false;
@@ -46,6 +43,8 @@ public class HomeFragment_WeekInfo extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        homeFragment = new HomeFragment();
         View view = inflater.inflate(R.layout.home_fragment_weekinfo, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
@@ -121,6 +120,22 @@ public class HomeFragment_WeekInfo extends Fragment {
         } catch (Exception e) {
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+
+
         return view;
+    }
+
+
+    @Override
+    public void onBack() {
+        MainActivity activity = (MainActivity)getActivity();
+        activity.setOnBackPressedListener(null);
+        getActivity().getSupportFragmentManager().popBackStack();
+    }
+    @Override
+    public void onAttach(Activity context){
+        super.onAttach(context);
+        ((MainActivity)context).setOnBackPressedListener(this);
     }
 }

@@ -3,7 +3,6 @@ package com.example.hwhan.rrealfinal;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,24 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.util.Base64;
-import android.util.Log;
 import android.widget.Toast;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -48,7 +31,7 @@ public class MainActivity extends AppCompatActivity  {
     private NavigationView navigationView;
 
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
-    private FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentManager fragmentManager = getSupportFragmentManager();
 
     // 4개의 메뉴에 들어갈 Fragment들
     private MapFragment mapFragment = new MapFragment();
@@ -65,13 +48,24 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        final String ID = intent.getStringExtra("ID");
+        final String ID;
+        ID = intent.getStringExtra("ID");
 
         //바텀네비게이션뷰
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         BottomNavigationHelper.disableShiftMode(bottomNavigationView);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_layout, homeFragment).commitAllowingStateLoss();
+
+//        if(intent.getStringExtra("title")!=null&&intent.getStringExtra("title")!=""){
+//            Bundle bundle = new Bundle();
+//            transaction = fragmentManager.beginTransaction();
+//            transaction.replace(R.id.frame_layout, mapFragment).commitAllowingStateLoss();
+//            bundle.putString("title", intent.getStringExtra("title"));
+//            mapFragment.setArguments(bundle);
+//            Toast.makeText(getApplicationContext(), intent.getStringExtra("title"), Toast.LENGTH_LONG).show();
+//            intent.putExtra("title", "");
+//        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -96,7 +90,7 @@ public class MainActivity extends AppCompatActivity  {
                         bundle.putString("ID", ID);
                         mypageFragment.setArguments(bundle);
                         break;
-                    }
+                }
                 }
 
                 return true;
@@ -114,20 +108,38 @@ public class MainActivity extends AppCompatActivity  {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION_ACCESS_FINE_LOCATION);
 
     }
+
     @Override
     public void onBackPressed(){
-        long tempTime = System.currentTimeMillis();
-        long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
-        {
-            super.onBackPressed();
+        if(mBackListener !=null){
+            mBackListener.onBack();
         }
-        else
-        {
-            backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+        else{
+            long tempTime = System.currentTimeMillis();
+            long intervalTime = tempTime - backPressedTime;
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+            {
+                finish();
+            }
+            else
+            {
+                backPressedTime = tempTime;
+                Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+            }
         }
+        }
+
+
+
+
+        public interface OnBackPressedListener{
+        void onBack();
+        }
+        private OnBackPressedListener mBackListener;
+
+    public void setOnBackPressedListener(OnBackPressedListener listener){
+        mBackListener = listener;
     }
 
 
@@ -165,13 +177,11 @@ public class MainActivity extends AppCompatActivity  {
 
         transaction.addToBackStack(null);
 
-
-
         //fragment의 변경사항을 반영시킨다.
-
         transaction.commit();
 
     }
+
 
 
 

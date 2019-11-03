@@ -11,49 +11,55 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
-        <RelativeLayout
-            android:background="#ffffff"
+        <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-           <LinearLayout
-               android:id="@+id/content"
-               android:layout_width="300dp"
-               android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
 
-               <TextView
-                   android:textStyle="bold"
-                   android:id="@+id/subtitle"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginLeft="5dp"
-                   android:text="SUBTITLE"
-                   android:textColor="@color/base_color"
-                   android:textSize="18sp"/>
-           </LinearLayout>
-
-            <ImageButton
-                android:background="@drawable/openbtn_change"
-                android:id="@+id/openBtn"
-                android:layout_toRightOf="@id/content"
-                android:layout_width="35dp"
-                android:layout_height="35dp" />
             <TextView
-                android:visibility="gone"
-                android:id="@+id/subcontent"
-                android:layout_below="@+id/content"
+                android:id="@+id/subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="SUBTITLE"
+                android:textColor="@color/base_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/openBtn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:background="@drawable/openbtn_change" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/subcontent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
                 android:text="CONTENT"
                 android:textColor="@color/base_color"
-                android:textSize="16sp"/>
-
-
-
-        </RelativeLayout>
-
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
     </android.support.v7.widget.CardView>
-
 </LinearLayout>
