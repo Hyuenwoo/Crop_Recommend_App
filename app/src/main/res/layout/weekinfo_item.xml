@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@android:color/white"
+    android:background="@color/color5"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="8dp">
@@ -23,7 +23,7 @@
             android:includeFontPadding="false"
             android:text="주간농사정보 제 24호 ( 2019.06.09~06.15)"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -39,10 +39,10 @@
 
     <ImageButton
         android:id="@+id/file_url"
-        android:layout_width="30sp"
-        android:layout_height="match_parent"
+        android:layout_width="20sp"
+        android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="@drawable/fileicon">
+        android:background="@drawable/file">
 
     </ImageButton>
 

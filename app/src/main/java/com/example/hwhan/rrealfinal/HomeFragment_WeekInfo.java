@@ -74,7 +74,7 @@ public class HomeFragment_WeekInfo extends Fragment implements MainActivity.OnBa
                     case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
                         if (parser.getName().equals("downUrl")) { //title 만나면 내용을 받을수 있게 하자
                             inDownUrl = true;
-                        } else if (parser.getName().equals("fileName")) { //mapx 만나면 내용을 받을수 있게 하자
+                        } else if (parser.getName().equals("subject")) { //mapx 만나면 내용을 받을수 있게 하자
                             inName = true;
                         } else if (parser.getName().equals("hitCT")) { //mapx 만나면 내용을 받을수 있게 하자
                             inHit = true;

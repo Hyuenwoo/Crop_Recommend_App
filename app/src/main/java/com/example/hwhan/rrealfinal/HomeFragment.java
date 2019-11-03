@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.jsoup.nodes.Document;
 import java.util.ArrayList;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
@@ -76,7 +78,7 @@ public class HomeFragment extends Fragment {
                 ariticle3.setText(result.getResult().get(2));
                 ariticle4.setText(result.getResult().get(3));
                 url_piece_collect = result.getResult().get(4);
-//                Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
                 test = url_piece_collect;
 
             }
@@ -88,10 +90,10 @@ public class HomeFragment extends Fragment {
         });
 
         if(test!=null) {
-            url1 = test.substring(0, 3);
-            url2 = test.substring(4, 7);
-            url3 = test.substring(8, 11);
-            url4 = test.substring(12, 15);
+            url1 = test.substring(0, 4);
+            url2 = test.substring(4, 8);
+            url3 = test.substring(8, 12);
+            url4 = test.substring(12, 16);
 
             url1 = "http://www.returnfarm.com/cmn/board/OLDBBSMSTR_000000006/" + url1 + "bbsDetail.do";
             url2 = "http://www.returnfarm.com/cmn/board/OLDBBSMSTR_000000006/" + url2 + "bbsDetail.do";
