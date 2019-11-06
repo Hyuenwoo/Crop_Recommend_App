@@ -365,11 +365,12 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         recommendFragment = new RecommendFragment();
 
         Bundle bundle = new Bundle();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, recommendFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
         bundle.putString("locate",locate);
         recommendFragment.setArguments(bundle);
-
-        Toast.makeText(getContext(),"아아", Toast.LENGTH_LONG).show();
-
     }
 
     @Override
