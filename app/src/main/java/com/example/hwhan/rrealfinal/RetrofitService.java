@@ -50,6 +50,26 @@ public interface  RetrofitService {
             @Query("title") String title
     );
 
+    @GET("home_info_tab1.php")
+    Call<ResultModel_HomeInfo1> gethomeinfo1(
+            @Query("title") String title
+    );
+
+    @GET("home_info_tab2.php")
+    Call<ResultModel_HomeInfo2> gethomeinfo2(
+            @Query("title") String title
+    );
+
+    @GET("home_info_tab3.php")
+    Call<ResultModel_HomeInfo3> gethomeinfo3(
+            @Query("title") String title
+    );
+
+    @GET("home_info_tab4.php")
+    Call<ResultModel_HomeInfo4> gethomeinfo4(
+            @Query("title") String title
+    );
+
     @GET("recommend_info.php")
     Call<ResultModel_RecoInfo>  getrecoinfo(
             @Query("locate") String locate

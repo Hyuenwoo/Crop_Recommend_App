@@ -57,26 +57,137 @@
             app:cardBackgroundColor="@color/green"
             >
 
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/category1"
+                    android:text="공지사항"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:id="@+id/category2"
+                    android:text="최신소식"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:id="@+id/category3"
+                    android:text="언론보도"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:id="@+id/category4"
+                    android:text="행사알림"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/showtext1"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="50dp"
+                    android:textSize="13dp"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"/>
+                    android:layout_height="50dp">
+
+                </Button>
+
+                <TextView
+                    android:id="@+id/showDate1"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/showtext2"
-                    android:layout_marginTop="80dp"
+                    android:layout_marginTop="100dp"
+                    android:textSize="13dp"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="50dp">
+
+                </Button>
+
+                <TextView
+                    android:id="@+id/showDate2"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/showtext3"
-                    android:layout_marginTop="140dp"
+                    android:layout_marginTop="150dp"
+                    android:textSize="13dp"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="50dp">
+
+                </Button>
+
+                <TextView
+                    android:id="@+id/showDate3"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/showtext4"
                     android:layout_marginTop="200dp"
+                    android:textSize="13dp"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="50dp">
+
+                </Button>
+
+                <TextView
+                    android:id="@+id/showDate4"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="2019.10.03"
+                    android:textSize="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
 
 
         </android.support.v7.widget.CardView>
@@ -96,7 +207,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/weekinfo_button"
+                    android:id="@+id/soilcheck"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
                     android:layout_width="90dp"

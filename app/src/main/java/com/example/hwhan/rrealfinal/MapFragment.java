@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -56,6 +57,9 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
     private InputMethodManager imm;
     String locate;
+
+
+    RecommendFragment recommendFragment;
 
     @Nullable
     @Override
@@ -353,9 +357,18 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-        Intent intent = new Intent(getActivity(), com.example.hwhan.rrealfinal.Recommend_crop.class);
-        intent.putExtra("locate",locate);
-        startActivity(intent);
+//        Intent intent = new Intent(getActivity(), com.example.hwhan.rrealfinal.Recommend_crop.class);
+//        intent.putExtra("locate",locate);
+//        startActivity(intent);
+
+
+        recommendFragment = new RecommendFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("locate",locate);
+        recommendFragment.setArguments(bundle);
+
+        Toast.makeText(getContext(),"아아", Toast.LENGTH_LONG).show();
 
     }
 
