@@ -59,8 +59,8 @@ public class CropInfoFragment extends Fragment implements MainActivity.OnBackPre
             @Override
             public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
                 ResultModel_RecoInfo result = response.body();
-                String url = result.getResult().get(0).getCropimage();
-                Glide.with(getContext()).load("http://cropmaster.cafe24.com/img/"+url+".jpg").into(cropinfo_image);
+//                String url = result.getResult().get(0).getCropimage();
+//                Glide.with(getContext()).load("http://cropmaster.cafe24.com/img/"+url+".jpg").into(cropinfo_image);
                 cropinfo_explain.setText(result.getResult().get(0).getCropinfo());
 
             }

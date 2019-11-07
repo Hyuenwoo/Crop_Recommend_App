@@ -37,7 +37,7 @@ public interface  RetrofitService {
 
     @GET("cropinfo_fragment.php")
     Call<ResultModel_RecoInfo> cropinfo_fragment(
-            @Field("cropname") String cropname
+            @Query("cropname") String cropname
     );
 
     @FormUrlEncoded
