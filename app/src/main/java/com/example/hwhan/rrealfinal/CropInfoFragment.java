@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,28 +20,29 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RecommendFragment extends Fragment implements MainActivity.OnBackPressedListener {
-    private TextView test;
-    TextView reco1,reco2,reco3;
+public class CropInfoFragment extends Fragment implements MainActivity.OnBackPressedListener {
+
+    private TextView show_cropname;
+    private TextView add_favcrop;
+    private ImageView cropinfo_image;
+    private TextView cropinfo_explain;
+    String cropname;
 
     RetrofitService retrofitService;
-    String[] locate_reco;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.recommend_fragment, container, false);
+        final View view = inflater.inflate(R.layout.cropinfo_fragment, container, false);
 
         super.onCreate(savedInstanceState);
-        test = view.findViewById(R.id.test);
-        reco1 = view.findViewById(R.id.reco1);
-        reco2 = view.findViewById(R.id.reco2);
-        reco3 = view.findViewById(R.id.reco3);
 
-        final Bundle bundle = this.getArguments();
-        final String locate = bundle.getString("locate");
-        test.setText(locate);
+        show_cropname = view.findViewById(R.id.cropname);
+        add_favcrop = view.findViewById(R.id.add_favcrop);
 
+        cropinfo_image = view.findViewById(R.id.cropinfo_image);
+        cropinfo_image = view.findViewById(R.id.cropinfo_explain);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitService.URL)
@@ -50,32 +51,27 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
 
         retrofitService = retrofit.create(RetrofitService.class);
 
-        retrofitService.getlocatereco(locate).enqueue(new Callback<ResultModel_LocateReco>() {
+        retrofitService.cropinfo_fragment(cropname).enqueue(new Callback<ResultModel>() {
 
             @Override
-            public void onResponse(Call<ResultModel_LocateReco> call, Response<ResultModel_LocateReco> response) {
+            public void onResponse(Call<ResultModel> call, Response<ResultModel> response) {
 
-                ResultModel_LocateReco result = response.body();
+                ResultModel result = response.body();
 
-                locate_reco[0] = result.getResult().get(0);
-                locate_reco[1] = result.getResult().get(1);
-                locate_reco[2] = result.getResult().get(2);
 
-                Toast.makeText(getContext(),locate_reco[0]+locate_reco[1]+locate_reco[2] ,Toast.LENGTH_LONG).show();
-
-                reco1.setText(locate_reco[0]);
-                reco2.setText(locate_reco[1]);
-                reco3.setText(locate_reco[2]);
 
 
             }
 
 
             @Override
-            public void onFailure(Call<ResultModel_LocateReco> call, Throwable t) {
+            public void onFailure(Call<ResultModel> call, Throwable t) {
 
             }
         });
+
+
+
 
         return view;
     }

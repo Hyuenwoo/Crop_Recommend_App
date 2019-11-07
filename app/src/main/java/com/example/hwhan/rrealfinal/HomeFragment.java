@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment {
                 ariticle4.setText(check4);
                 url_piece_collect = result.getResult().get(4);
                 date_piece_collect = result.getResult().get(5);
-                Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
                 testa = url_piece_collect;
                 testb = date_piece_collect;
 
@@ -234,7 +234,7 @@ public class HomeFragment extends Fragment {
                         ariticle4.setText(check4);
                         url_piece_collect = result.getResult().get(4);
                         date_piece_collect = result.getResult().get(5);
-                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
                         testa = url_piece_collect;
                         testb = date_piece_collect;
 
@@ -446,7 +446,7 @@ public class HomeFragment extends Fragment {
                         ariticle4.setText(check4);
                         url_piece_collect = result.getResult().get(4);
                         date_piece_collect = result.getResult().get(5);
-                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
                         teste = url_piece_collect;
                         testf = date_piece_collect;
 
@@ -552,7 +552,7 @@ public class HomeFragment extends Fragment {
                         ariticle4.setText(check4);
                         url_piece_collect = result.getResult().get(4);
                         date_piece_collect = result.getResult().get(5);
-                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(),url_piece_collect,Toast.LENGTH_LONG).show();
                         testg = url_piece_collect;
                         testh = date_piece_collect;
 

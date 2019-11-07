@@ -1,13 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="아아아아"
+            android:textColor="@color/login_form_details"
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="130dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="관심지역 추가"
+            android:textColor="@color/login_form_details"
+            android:id="@+id/add_favlocate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
 
     <TextView
-        android:textSize="30sp"
-        android:text="아아아아"
-        android:id="@+id/test"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:text="추천 작물"
+        android:textStyle="bold"
+        android:textColor="@color/login_form_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:clickable="true"
+        android:background="@color/color5"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:textSize="20sp"
+        android:text="아아아아"
+        android:textColor="@color/login_form_details"
+        android:id="@+id/reco1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:background="@color/color5"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:textSize="20sp"
+        android:text="아아아아"
+        android:textColor="@color/login_form_details"
+        android:id="@+id/reco2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:background="@color/color5"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:textSize="20sp"
+        android:text="아아아아"
+        android:textColor="@color/login_form_details"
+        android:id="@+id/reco3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="15sp"
+        android:text="설명"
+        android:textColor="@color/login_form_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
 
 </LinearLayout>
