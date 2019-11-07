@@ -83,6 +83,7 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
                locate_reco[6] = result.getResult().get(6);
                locate_reco[7] = result.getResult().get(7);
 
+
                 reco1.setText(locate_reco[0]);
                 reco2.setText(locate_reco[1]);
                 reco3.setText(locate_reco[2]);
