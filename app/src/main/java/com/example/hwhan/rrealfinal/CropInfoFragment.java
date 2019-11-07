@@ -44,7 +44,7 @@ public class CropInfoFragment extends Fragment implements MainActivity.OnBackPre
         Bundle bundle = this.getArguments();
         cropname = bundle.getString("cropname");
         show_cropname = view.findViewById(R.id.cropname);
-        add_favcrop = view.findViewById(R.id.add_favcrop);
+//        add_favcrop = view.findViewById(R.id.add_favcrop);
         cropinfo_image = view.findViewById(R.id.cropinfo_image);
         cropinfo_explain = view.findViewById(R.id.cropinfo_explain);
 
@@ -60,7 +60,7 @@ public class CropInfoFragment extends Fragment implements MainActivity.OnBackPre
             public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
                 ResultModel_RecoInfo result = response.body();
                 String url = result.getResult().get(0).getCropimage();
-                Glide.with(getContext()).load("http://cropmaster.cafe24.com/img/"+url+".png").into(cropinfo_image);
+                Glide.with(getContext()).load("http://cropmaster.cafe24.com/img/"+url+".PNG").into(cropinfo_image);
                 cropinfo_explain.setText(result.getResult().get(0).getCropinfo());
 
             }

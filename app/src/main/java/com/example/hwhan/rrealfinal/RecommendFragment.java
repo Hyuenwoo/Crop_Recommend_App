@@ -99,8 +99,7 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
             }
             @Override
             public void onFailure(Call<ResultModel_LocateReco> call, Throwable t) {
-
-
+                test.setText("미지원지역");
             }
         });
 

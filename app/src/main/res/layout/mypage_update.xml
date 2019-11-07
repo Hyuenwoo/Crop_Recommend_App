@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="현재 비밀번호를 입력해주세요."
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:padding="16dp"
             android:background="@null"
             android:textColorHint="@color/login_form_details" />
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:padding="16dp"
                 android:background="@null"
                 android:textColorHint="@color/login_form_details" />
