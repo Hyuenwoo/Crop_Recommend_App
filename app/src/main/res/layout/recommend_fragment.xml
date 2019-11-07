@@ -21,7 +21,7 @@
             android:layout_marginLeft="20dp"
             android:textStyle="bold"
             android:textSize="30sp"
-            android:text="아아아아"
+            android:text=""
             android:textColor="@color/login_form_details"
             android:id="@+id/test"
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sum2"
-            android:text="11.3"
+            android:text=""
             android:textColor="@color/colorPrimary"/>
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11.3"
+            android:text=""
             android:id="@+id/sum3"
             android:textColor="@color/colorPrimary"/>
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sum4"
-            android:text="11.3"
+            android:text=""
             android:textColor="@color/colorPrimary"/>
 
         <TextView
@@ -133,7 +133,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11.3"
+            android:text=""
             android:id="@+id/sum5"
             android:textColor="@color/colorPrimary"/>
 
@@ -164,7 +164,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
         android:textSize="20sp"
-        android:text="아아아아"
+        android:text=""
         android:textColor="@color/login_form_details"
         android:id="@+id/reco1"
         android:layout_width="match_parent"
@@ -177,7 +177,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
         android:textSize="20sp"
-        android:text="아아아아"
+        android:text=""
         android:textColor="@color/login_form_details"
         android:id="@+id/reco2"
         android:layout_width="match_parent"
@@ -189,7 +189,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
         android:textSize="20sp"
-        android:text="아아아아"
+        android:text=""
         android:textColor="@color/login_form_details"
         android:id="@+id/reco3"
         android:layout_width="match_parent"
@@ -218,9 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
-            android:text="춘천은 강원도의 중서부에 있으며 북쪽은 화천군·양구군, 서쪽은 경기도 가평군, 남쪽은 홍천군, 동쪽은 인제군과 접한다. 동단부는 해발고도 1,000m 이상의 태백산맥 지맥들이 북동∼남서 방향으로 뻗어 있고, 그 지역 사이에 춘천분지가 있다. 분지 안쪽으로 해발고도 약 300m까지는 급사면을 이루나 그 이하에서는 구릉성 산지와 산록완사면이 넓게 발달되어 있다.
-하천은 분지를 중심으로 북동쪽에서 소양강, 북서쪽에서 북한강이 흘러 분지 안에서 합류하여 남서류하다가 홍천군과의 경계선을 따라 서류하는 홍천강과 합류한다. 시내에는 소양호·춘천호·의암호가 있다. 춘천지역은 단일 시 지역으로 국내에서 관내 댐 최다, 내수면 면적이 최대(90㎢)를 기록하고 있다.
-춘천을 중심으로 한 영서 지방은 한반도 내륙 중앙부에 위치하며 크고 작은 산악분지 형태로 형성되어 산악기후의 특성과 대륙성기후의 특성을 복합적으로 보이고 있다."/>
+            android:text=""/>
 
 
 
