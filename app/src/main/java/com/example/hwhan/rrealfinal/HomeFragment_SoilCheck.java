@@ -84,15 +84,15 @@ public class HomeFragment_SoilCheck extends Fragment implements MainActivity.OnB
                         break;
 
                     case XmlPullParser.TEXT://parser가 내용에 접근했을때
-                        if (inDownUrl) { //isTitle이 true일 때 태그의 내용을 저장.
+                        if (inName) { //isAddress이 true일 때 태그의 내용을 저장.
                             temp = new SoilCheck_Item();
-                            downUrl = parser.getText();
-                            temp.setFile(downUrl);
-                            inDownUrl = false;
-                        } else if (inName) { //isAddress이 true일 때 태그의 내용을 저장.
                             name = parser.getText();
                             temp.setSubject(name);
                             inName = false;
+                        } else if (inDownUrl) { //isTitle이 true일 때 태그의 내용을 저장.
+                        downUrl = parser.getText();
+                        temp.setFile(downUrl);
+                        inDownUrl = false;
                         } else if (inHit) { //isMapx이 true일 때 태그의 내용을 저장.
                             hit = parser.getText();
                             inHit = false;
