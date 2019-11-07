@@ -80,8 +80,8 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
 
                 locate_reco[4] = result.getResult().get(4);
                 locate_reco[5] = result.getResult().get(5);
-//                locate_reco[6] = result.getResult().get(6);
-//                locate_reco[7] = result.getResult().get(7);
+                locate_reco[6] = result.getResult().get(6);
+                locate_reco[7] = result.getResult().get(7);
 
                 reco1.setText(locate_reco[0]);
                 reco2.setText(locate_reco[1]);
@@ -91,8 +91,8 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
 
                 sum2.setText(locate_reco[4]);
                 sum3.setText(locate_reco[5]);
-//                sum4.setText(locate_reco[6]);
-//                sum5.setText(locate_reco[7]);
+                sum4.setText(locate_reco[6]);
+                sum5.setText(locate_reco[7]);
 
 
             }
