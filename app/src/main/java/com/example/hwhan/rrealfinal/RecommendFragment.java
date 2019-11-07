@@ -26,7 +26,7 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
     private TextView test;
     TextView reco1,reco2,reco3;
 
-    TextView sum1,sum2,sum3;
+    TextView sum1,sum2,sum3, sum4, sum5;
 
     RetrofitService retrofitService;
     String[] locate_reco;
@@ -47,6 +47,8 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
         sum1 = view.findViewById(R.id.sum1);
         sum2 = view.findViewById(R.id.sum2);
         sum3 = view.findViewById(R.id.sum3);
+        sum4 = view.findViewById(R.id.sum4);
+        sum5 = view.findViewById(R.id.sum5);
 
 
 
@@ -69,22 +71,28 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
 
                 ResultModel_LocateReco result = response.body();
 
-                locate_reco = new String[6];
+                locate_reco = new String[8];
                 locate_reco[0] = result.getResult().get(0);
                 locate_reco[1] = result.getResult().get(1);
                 locate_reco[2] = result.getResult().get(2);
 
                 locate_reco[3] = result.getResult().get(3);
+
                 locate_reco[4] = result.getResult().get(4);
                 locate_reco[5] = result.getResult().get(5);
+//                locate_reco[6] = result.getResult().get(6);
+//                locate_reco[7] = result.getResult().get(7);
 
                 reco1.setText(locate_reco[0]);
                 reco2.setText(locate_reco[1]);
                 reco3.setText(locate_reco[2]);
 
                 sum1.setText(locate_reco[3]);
+
                 sum2.setText(locate_reco[4]);
                 sum3.setText(locate_reco[5]);
+//                sum4.setText(locate_reco[6]);
+//                sum5.setText(locate_reco[7]);
 
 
             }
