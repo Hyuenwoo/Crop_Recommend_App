@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_menu3"
         android:icon="@drawable/rec_info"
-        android:title="작물정보" />
+        android:title="작물사전" />
 
     <item
         android:id="@+id/navigation_menu4"
