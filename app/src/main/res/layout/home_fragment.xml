@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
-                    android:shadowRadius=""
+
                     android:id="@+id/category1"
                     android:text="공지사항"
                     android:layout_marginTop="5dp"
@@ -313,6 +313,13 @@
                         android:textColor="#424242"/>
                 </LinearLayout>
             </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#F2F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
         </LinearLayout>
 
