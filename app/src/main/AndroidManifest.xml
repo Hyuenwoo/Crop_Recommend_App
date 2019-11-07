@@ -28,8 +28,6 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".Recommend_view"/>
-        <activity android:name=".Recommend_crop"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login_start"/>
         <activity android:name=".Login_join"/>
         <activity android:name=".Mypage_update"/>

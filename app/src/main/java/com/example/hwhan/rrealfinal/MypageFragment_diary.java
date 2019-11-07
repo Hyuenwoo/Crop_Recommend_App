@@ -18,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MypageFragment_diary extends Fragment implements MainActivity.OnBackPressedListener {
 
     private FloatingActionButton enroll;
+    Button backbtn;
     diary_list_Adapter diary_list_adapter;
     MypageFragment_adddiary mypageFragment_adddiary;
     MypageFragment_diary_content mypageFragment_diary_content;
@@ -45,6 +48,7 @@ public class MypageFragment_diary extends Fragment implements MainActivity.OnBac
             }
         });
 
+        backbtn = view.findViewById(R.id.backwardBtn);
         mypageFragment_diary_content = new MypageFragment_diary_content();
         mypageFragment_adddiary = new MypageFragment_adddiary();
         android.support.v7.widget.RecyclerView diaryView = view.findViewById(R.id.diary_Recycler);
@@ -67,6 +71,12 @@ public class MypageFragment_diary extends Fragment implements MainActivity.OnBac
             }
         });
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBack();
+            }
+        });
         diaryView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {

@@ -369,13 +369,10 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-//        Intent intent = new Intent(getActivity(), com.example.hwhan.rrealfinal.Recommend_crop.class);
-//        intent.putExtra("locate",locate);
-//        startActivity(intent);
+
 
 
         recommendFragment = new RecommendFragment();
-
         Bundle bundle = new Bundle();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, recommendFragment);

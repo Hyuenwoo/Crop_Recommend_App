@@ -4,13 +4,13 @@ import java.util.List;
 
 public class ResultModel_RecoInfo {
 
-    List<String> result;
+    List<ResultModel_RecoInfo_item> result;
 
-    public List<String> getResult() {
+    public List<ResultModel_RecoInfo_item> getResult() {
         return result;
     }
 
-    public void setResult(List<String> result) {
+    public void setResult(List<ResultModel_RecoInfo_item> result) {
         this.result = result;
     }
 }

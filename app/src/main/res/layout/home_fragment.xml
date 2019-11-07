@@ -42,7 +42,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="#ffff">
+            android:background="#ffffff">
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
                     android:id="@+id/category1"
                     android:text="공지사항"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="6dp"
+
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
                 <Button
@@ -312,38 +312,38 @@
                         android:textColor="#424242"/>
                 </LinearLayout>
             </FrameLayout>
-            
+
         </LinearLayout>
 
 
         <!--<LinearLayout-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:background="#ffff">-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#ffff">-->
 
-            <!--<android.support.v7.widget.CardView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="200dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginRight="20dp"-->
-                <!--app:cardCornerRadius="20dp"-->
-                <!--app:cardBackgroundColor="#F5D08A">-->
+        <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--app:cardCornerRadius="20dp"-->
+        <!--app:cardBackgroundColor="#F5D08A">-->
 
-            <!--</android.support.v7.widget.CardView>-->
+        <!--</android.support.v7.widget.CardView>-->
 
-            <!--<android.support.v7.widget.CardView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="200dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginRight="20dp"-->
-                <!--app:cardCornerRadius="20dp"-->
-                <!--app:cardBackgroundColor="#F6D8CE">-->
+        <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--app:cardCornerRadius="20dp"-->
+        <!--app:cardBackgroundColor="#F6D8CE">-->
 
-            <!--</android.support.v7.widget.CardView>-->
+        <!--</android.support.v7.widget.CardView>-->
 
 
         <!--</LinearLayout>-->

@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.net.URL;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,35 +41,31 @@ public class CropInfoFragment extends Fragment implements MainActivity.OnBackPre
         final View view = inflater.inflate(R.layout.cropinfo_fragment, container, false);
 
         super.onCreate(savedInstanceState);
-
+        Bundle bundle = this.getArguments();
+        cropname = bundle.getString("cropname");
         show_cropname = view.findViewById(R.id.cropname);
         add_favcrop = view.findViewById(R.id.add_favcrop);
-
         cropinfo_image = view.findViewById(R.id.cropinfo_image);
-        cropinfo_image = view.findViewById(R.id.cropinfo_explain);
+        cropinfo_explain = view.findViewById(R.id.cropinfo_explain);
 
+        show_cropname.setText(cropname);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitService.URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         retrofitService = retrofit.create(RetrofitService.class);
-
-        retrofitService.cropinfo_fragment(cropname).enqueue(new Callback<ResultModel>() {
-
+        retrofitService.cropinfo_fragment(cropname).enqueue(new Callback<ResultModel_RecoInfo>() {
             @Override
-            public void onResponse(Call<ResultModel> call, Response<ResultModel> response) {
-
-                ResultModel result = response.body();
-
-
-
+            public void onResponse(Call<ResultModel_RecoInfo> call, Response<ResultModel_RecoInfo> response) {
+                ResultModel_RecoInfo result = response.body();
+                String url = result.getResult().get(0).getCropimage();
+                Glide.with(getContext()).load("http://cropmaster.cafe24.com/img/"+url+".jpg").into(cropinfo_image);
+                cropinfo_explain.setText(result.getResult().get(0).getCropinfo());
 
             }
-
-
             @Override
-            public void onFailure(Call<ResultModel> call, Throwable t) {
+            public void onFailure(Call<ResultModel_RecoInfo> call, Throwable t) {
 
             }
         });

@@ -34,6 +34,12 @@ public interface  RetrofitService {
             @Query("CATEGORY") String category
     );
 
+
+    @GET("cropinfo_fragment.php")
+    Call<ResultModel_RecoInfo> cropinfo_fragment(
+            @Field("cropname") String cropname
+    );
+
     @FormUrlEncoded
     @POST("login_ok.php")
             Call<ResultModel> login_ok(
@@ -41,11 +47,8 @@ public interface  RetrofitService {
     );
 
 
-    @FormUrlEncoded
-    @POST("cropinfo_fragment.php")
-    Call<ResultModel> cropinfo_fragment(
-            @Field("cropname") String cropname
-    );
+
+
 
     @FormUrlEncoded
     @POST("login_update.php")
