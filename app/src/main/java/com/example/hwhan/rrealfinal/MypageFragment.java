@@ -30,20 +30,26 @@ public class MypageFragment extends Fragment {
     MypageFragment_favlocate mypageFragment_favlocate;
     MypageFragment_favcrop mypageFragment_favcrop;
     MypageFragment_update mypageFragment_update;
+    MypageFragment_diary mypageFragment_diary;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.mypage_fragment, container, false);
 
+
         mypageFragment_update = new MypageFragment_update();
         mypageFragment_favcrop = new MypageFragment_favcrop();
         mypageFragment_favlocate = new MypageFragment_favlocate();
+        mypageFragment_diary = new MypageFragment_diary();
         final Bundle bundle = this.getArguments();
         final TextView idview = view.findViewById(R.id.id);
         final TextView emailview = view.findViewById(R.id.email);
+        TextView diary = view.findViewById(R.id.diary);
         TextView updateinfo = view.findViewById(R.id.updateinfo);
         TextView favlocate = view.findViewById(R.id.favlocate);
         TextView favcrop = view.findViewById(R.id.favcrop);
+
         final String ID = bundle.getString("ID");
         idview.setText(ID);
 
@@ -102,7 +108,19 @@ public class MypageFragment extends Fragment {
             }
         });
 
+        diary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, mypageFragment_diary);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                bundle.putString("ID", ID);
+                mypageFragment_diary.setArguments(bundle);;
 
+            }
+        });
 
 
 

@@ -66,12 +66,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.map_fragment, container, false);
 
-
-
-
-//        imm = (InputMethodManager)getSystemService((INPUT_METHOD_SERVICE));
-
-        //지도용
         mapView = view.findViewById(R.id.map_view);
         mapView.setMapViewEventListener(this);
         mapView.setPOIItemEventListener(this);
@@ -88,8 +82,29 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
         if(bundle!=null){
             if(bundle.getString("title")!=""){
                 String title = bundle.getString("title");
-                Toast.makeText(getContext(), title+"222222", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), title, Toast.LENGTH_LONG).show();
                 finder(title);
+                final String[] temp;
+                temp = localjsonParser(finder(title));
+                if(temp[0]!= null){
+                    CameraPosition Temp = new CameraPosition(MapPoint.mapPointWithGeoCoord(Double.parseDouble(temp[1]), Double.parseDouble(temp[0])), 5);
+                    mapView.animateCamera(CameraUpdateFactory.newCameraPosition(Temp), 500, new CancelableCallback() {
+                        @Override
+                        public void onFinish() {
+                            if (view != null) {
+                                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                            }
+                        }
+                        @Override
+                        public void onCancel() {
+                            Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(getActivity(), "No Search data error", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -111,7 +126,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
             }
         });
 
-
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
@@ -119,8 +133,6 @@ public class MapFragment extends Fragment implements NavigationView.OnNavigation
 
             }
         });
-
-
         return view;
     }
 

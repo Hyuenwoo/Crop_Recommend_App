@@ -80,6 +80,7 @@
                 android:inputType="textPassword"
                 android:textSize="18dp"
                 android:padding="16dp"
+                android:background="@null"
                 android:textColorHint="@color/login_form_details" />
         </LinearLayout>
         <View

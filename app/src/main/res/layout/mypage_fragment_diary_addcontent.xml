@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+    <LinearLayout
+        android:layout_marginTop="23dp"
+        android:orientation="vertical"
+        android:id="@+id/diary_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+            <EditText
+                android:background="@null"
+                android:id="@+id/diary_add_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:hint="Title"
+                android:textColor="@color/base_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/diary_add_date"
+            android:layout_width="wrap_content"
+            android:text="2018년 12월 13일"
+            android:textStyle="bold"
+            android:textColor="@color/base_color"
+            android:layout_height="wrap_content">
+        </TextView>
+        <View
+            android:background="@color/base_color"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <EditText
+                android:id="@+id/diary_add_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:hint="CONTENT"
+                android:textColor="@color/base_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/diary_enroll2"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_circle"
+        app:backgroundTint="#FFFFFF" />
+</FrameLayout>

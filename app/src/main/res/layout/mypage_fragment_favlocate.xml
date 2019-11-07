@@ -22,6 +22,7 @@
             android:layout_marginRight="110dp"
             android:layout_gravity="center"
             android:hint="관심지역"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textSize="17dp">
@@ -66,7 +67,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            android:text="경남 하동군" />
+            android:text="강원 영월군" />
         <TextView
             android:id="@+id/localdetail1"
             android:layout_marginTop="6dp"
@@ -77,7 +78,7 @@
             android:layout_below="@id/localID1"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text="경남 하동군 청암면 묵계리 산성궁터" />
+            android:text="강원 영월군 영월읍 하송리 6-1" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,7 +92,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
-            android:text="경남 하동군" />
+            android:text="전라북도 익산" />
         <TextView
             android:id="@+id/localdetail2"
             android:layout_marginTop="6dp"
@@ -102,6 +103,6 @@
             android:layout_below="@id/localID2"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text="경남 하동군 청암면 묵계리 산성궁터" />
+            android:text="전북 익산시 남중동 60-51" />
     </RelativeLayout>
 </LinearLayout>

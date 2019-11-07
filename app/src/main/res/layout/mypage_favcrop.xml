@@ -24,6 +24,7 @@
             android:layout_marginRight="110dp"
             android:layout_gravity="center"
             android:hint="관심작물"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textSize="17dp">

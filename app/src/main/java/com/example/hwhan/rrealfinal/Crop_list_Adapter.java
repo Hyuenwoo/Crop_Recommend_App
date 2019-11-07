@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class Crop_list_Adapter extends RecyclerView.Adapter <Crop_list_Adapter.ItemViewHolder> {
     private ArrayList<Crop_info_detail_Data> listData = new ArrayList<>();
-
     public ArrayList<Crop_info_detail_Data> getListData() {
         return listData;
     }

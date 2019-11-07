@@ -107,14 +107,7 @@ public class InfoFragment extends Fragment implements MainActivity.OnBackPressed
                         case 6:
                             CategorySet("약초류");
                             break;
-
-
-
-
-
-
                     }
-
                 }
                 return false;
             }
@@ -134,7 +127,6 @@ public class InfoFragment extends Fragment implements MainActivity.OnBackPressed
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 int position = rv.getChildAdapterPosition(child);
-
                 if(child!=null&&gestureDetector.onTouchEvent(e)){
                     FragmentManager fragmentManager = getFragmentManager();
                     String name = adapter2.getListData().get(position).getSubtitle();
@@ -144,7 +136,6 @@ public class InfoFragment extends Fragment implements MainActivity.OnBackPressed
                     transaction.addToBackStack(null);
                     transaction.commit();
                     bundle.putString("Cropname", name);
-
                     infoFragment_crop_info_detail.setArguments(bundle);
                 }
 
@@ -192,7 +183,6 @@ public class InfoFragment extends Fragment implements MainActivity.OnBackPressed
                 .build();
 
         RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-
         retrofitService.getcropname(Category).enqueue(new Callback<ResultModel_CropData>() {
             @Override
             public void onResponse(Call<ResultModel_CropData> call, Response<ResultModel_CropData> response) {

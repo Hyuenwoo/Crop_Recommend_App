@@ -19,6 +19,8 @@ public class MypageFragment_favlocate extends Fragment implements MainActivity.O
     MypageFragment mypageFragment;
     private Button backwardBtn;
     private TextView favloc1;
+    private TextView favloc2;
+    private TextView favloc3;
     private RelativeLayout feba;
     @Nullable
     @Override
@@ -29,6 +31,8 @@ public class MypageFragment_favlocate extends Fragment implements MainActivity.O
 
         backwardBtn = view.findViewById(R.id.backwardBtn);
         favloc1 = view.findViewById(R.id.localID);
+        favloc2 = view.findViewById(R.id.localID1);
+        favloc3 = view.findViewById(R.id.localID2);
         feba = view.findViewById(R.id.FEBA);
 
         backwardBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +49,28 @@ public class MypageFragment_favlocate extends Fragment implements MainActivity.O
                 FragmentTransaction transaction= getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, mapFragment).commitAllowingStateLoss();
                 bundle.putString("title", favloc1.getText().toString());
+                mapFragment.setArguments(bundle);
+            }
+        });
+
+        favloc2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction= getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, mapFragment).commitAllowingStateLoss();
+                bundle.putString("title", favloc2.getText().toString());
+                mapFragment.setArguments(bundle);
+            }
+        });
+
+        favloc3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction= getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, mapFragment).commitAllowingStateLoss();
+                bundle.putString("title", favloc3.getText().toString());
                 mapFragment.setArguments(bundle);
             }
         });

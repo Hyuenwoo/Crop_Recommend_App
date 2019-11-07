@@ -1,5 +1,7 @@
 package com.example.hwhan.rrealfinal;
 
+import java.text.SimpleDateFormat;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -20,6 +22,11 @@ public interface  RetrofitService {
     @GET("get_cropdata.php")
     Call<ResultModel_CropData> getcropInfo(
             @Query("NAME") String name
+    );
+
+    @GET("get_diary.php")
+    Call<ResultModel_diary> getdiary(
+            @Query("ID") String ID
     );
 
     @GET("get_category.php")
@@ -44,6 +51,13 @@ public interface  RetrofitService {
     Call<ResultModel> login_join(
             @Field("id") String id, @Field("password") String password, @Field("email") String email, @Field("number") String number
     );
+
+    @FormUrlEncoded
+    @POST("add_diary.php")
+    Call<ResultModel> add_diary(
+            @Field("id") String id, @Field("date") java.sql.Date date, @Field("title") String title, @Field("content") String content
+    );
+
 
     @GET("home_info.php")
     Call<ResultModel_HomeInfo> gethomeinfo(

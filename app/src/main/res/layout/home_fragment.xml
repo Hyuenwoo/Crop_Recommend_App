@@ -51,14 +51,15 @@
             android:layout_width="match_parent"
             android:layout_height="275dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             app:cardCornerRadius="30dp"
             app:cardBackgroundColor="@color/green"
             >
 
 
             <LinearLayout
+                android:layout_gravity="center|top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -66,28 +67,28 @@
                     android:id="@+id/category1"
                     android:text="공지사항"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="6dp"
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
                 <Button
                     android:id="@+id/category2"
                     android:text="최신소식"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginLeft="6dp"
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
                 <Button
                     android:id="@+id/category3"
                     android:text="언론보도"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginLeft="6dp"
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
                 <Button
                     android:id="@+id/category4"
                     android:text="행사알림"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginLeft="6dp"
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
 

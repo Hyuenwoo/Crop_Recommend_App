@@ -4,6 +4,7 @@ public class Crop_info_detail_Data {
 
     private String subtitle;
     private String subContent;
+    private String date;
 
     public String getSubtitle() {
     return subtitle;
@@ -21,5 +22,11 @@ public class Crop_info_detail_Data {
         this.subContent = subContent;
     }
 
+    public String getDate() {
+        return date;
+    }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
