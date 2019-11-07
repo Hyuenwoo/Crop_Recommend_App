@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,8 +26,12 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
     private TextView test;
     TextView reco1,reco2,reco3;
 
+    TextView sum1,sum2,sum3;
+
     RetrofitService retrofitService;
     String[] locate_reco;
+
+    CropInfoFragment cropInfoFragment;
 
     @Nullable
     @Override
@@ -37,6 +43,12 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
         reco1 = view.findViewById(R.id.reco1);
         reco2 = view.findViewById(R.id.reco2);
         reco3 = view.findViewById(R.id.reco3);
+
+        sum1 = view.findViewById(R.id.sum1);
+        sum2 = view.findViewById(R.id.sum2);
+        sum3 = view.findViewById(R.id.sum3);
+
+
 
         final Bundle bundle = this.getArguments();
         final String locate = bundle.getString("locate");
@@ -57,18 +69,26 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
 
                 ResultModel_LocateReco result = response.body();
 
+                locate_reco = new String[6];
                 locate_reco[0] = result.getResult().get(0);
                 locate_reco[1] = result.getResult().get(1);
                 locate_reco[2] = result.getResult().get(2);
 
-                Toast.makeText(getContext(),locate_reco[0]+locate_reco[1]+locate_reco[2] ,Toast.LENGTH_LONG).show();
+                locate_reco[3] = result.getResult().get(3);
+                locate_reco[4] = result.getResult().get(4);
+                locate_reco[5] = result.getResult().get(5);
 
                 reco1.setText(locate_reco[0]);
                 reco2.setText(locate_reco[1]);
                 reco3.setText(locate_reco[2]);
 
+                sum1.setText(locate_reco[3]);
+                sum2.setText(locate_reco[4]);
+                sum3.setText(locate_reco[5]);
+
 
             }
+
 
 
             @Override
@@ -77,8 +97,73 @@ public class RecommendFragment extends Fragment implements MainActivity.OnBackPr
             }
         });
 
+
+        reco1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                cropInfoFragment = new CropInfoFragment();
+
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, cropInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                bundle.putString("cropname",locate_reco[0]);
+                cropInfoFragment.setArguments(bundle);
+
+            }
+        });
+
+        reco2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                cropInfoFragment = new CropInfoFragment();
+
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, cropInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                bundle.putString("cropname",locate_reco[1]);
+                cropInfoFragment.setArguments(bundle);
+
+            }
+        });
+
+        reco3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                cropInfoFragment = new CropInfoFragment();
+
+                Bundle bundle = new Bundle();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, cropInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                bundle.putString("cropname",locate_reco[2]);
+                cropInfoFragment.setArguments(bundle);
+
+            }
+        });
+
         return view;
+
+
+
+
+
+
     }
+
+
+
+
 
     @Override
     public void onBack() {
