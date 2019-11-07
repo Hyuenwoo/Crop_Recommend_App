@@ -33,6 +33,13 @@ public interface  RetrofitService {
             @Field("id") String id, @Field("password") String password
     );
 
+
+    @FormUrlEncoded
+    @POST("cropinfo_fragment.php")
+    Call<ResultModel> cropinfo_fragment(
+            @Field("cropname") String cropname
+    );
+
     @FormUrlEncoded
     @POST("login_update.php")
     Call<ResultModel> login_update(
@@ -74,5 +81,17 @@ public interface  RetrofitService {
     Call<ResultModel_RecoInfo>  getrecoinfo(
             @Query("locate") String locate
     );
+
+    @GET("locate_reco_fragment.php")
+    Call<ResultModel_LocateReco>  getlocatereco(
+            @Query("locate") String locate
+    );
+
+    @GET("crop_summary.php")
+    Call<ResultModel_CropSummary>  getcropsum(
+            @Query("crop_name") String crop_name
+    );
+
+
 
 }
