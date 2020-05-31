@@ -31,7 +31,6 @@ Screenshots
 <div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346321-48ac7c80-a356-11ea-985f-a8b69bc75df9.jpg">
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346873-3e40b180-a35b-11ea-9f1f-d5c7c81ab227.jpg">
-<img width="200" src="https://user-images.githubusercontent.com/39932900/83346848-046fab00-a35b-11ea-9a97-943912856560.jpg">
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346849-05084180-a35b-11ea-97a8-a68dd4a4eaab.jpg">
  </div>
 
