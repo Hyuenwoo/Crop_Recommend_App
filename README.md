@@ -6,7 +6,7 @@ Crop_Recommend_App
 Screenshots
 ------------
 
-####  홈    
+#### □ 홈    
 
 <div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346303-2d417180-a356-11ea-9edd-a566274cd53b.jpg">
@@ -19,7 +19,7 @@ Screenshots
 
 
 
-####  작물추천   
+#### □ 작물추천   
 
 <div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346315-41856e80-a356-11ea-9356-1f30de9f1555.jpg">
@@ -28,7 +28,7 @@ Screenshots
 </div>
 데이터 가공을 통한 작물추천 (일부지역만 지원)
 
-####  작물사전    
+#### □ 작물사전    
 
 <div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346321-48ac7c80-a356-11ea-985f-a8b69bc75df9.jpg">
@@ -38,7 +38,7 @@ Screenshots
 → 검색을 통한 작물정보 확인
 
 
-### - 내정보    
+#### □ 내정보    
 
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346596-cd989580-a358-11ea-878b-74bcba334401.jpg">
 
