@@ -41,6 +41,10 @@ Screenshots
 #### □ 내정보    
 
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346596-cd989580-a358-11ea-878b-74bcba334401.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346967-4c430200-a35c-11ea-8b1f-06cd07ad240e.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346968-4e0cc580-a35c-11ea-9736-44681a28dad2.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346970-506f1f80-a35c-11ea-80e1-2eb2719d4aa4.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346973-51a04c80-a35c-11ea-9e07-dc449e819e72.jpg">
 
 → 개인정보 열람 및 수정    
 
