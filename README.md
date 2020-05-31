@@ -28,7 +28,12 @@ Screenshots
 
 ### - Crop Dic    
 
+<div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346321-48ac7c80-a356-11ea-985f-a8b69bc75df9.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346845-033e7e00-a35b-11ea-8240-67c897f7d418.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346848-046fab00-a35b-11ea-9a97-943912856560.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346849-05084180-a35b-11ea-97a8-a68dd4a4eaab.jpg">
+ </div>
 
 ### - MyInfo    
 
