@@ -19,10 +19,19 @@ Screenshots
 
 
 ### - Recommend   
+
+<div>
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346315-41856e80-a356-11ea-9356-1f30de9f1555.jpg">
-### - Crop Dic     
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346801-95925200-a35a-11ea-8bfc-07daa653e156.jpg">
+<img width="200" src="https://user-images.githubusercontent.com/39932900/83346804-96c37f00-a35a-11ea-97d9-e8ed3214ed1e.jpg">
+</div>
+
+### - Crop Dic    
+
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346321-48ac7c80-a356-11ea-985f-a8b69bc75df9.jpg">
+
 ### - MyInfo    
+
 <img width="200" src="https://user-images.githubusercontent.com/39932900/83346596-cd989580-a358-11ea-878b-74bcba334401.jpg">
 
 Program Stacks
